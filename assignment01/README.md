@@ -19,3 +19,13 @@ According to the official documentation, installing VTK is a 7-step process:
 
 1. Download VTK
 2. Download CMake
+3. Create a Build Folder
+4. Run CMake
+5. Open the Visual Studio Project
+6. Install the Project
+7. Manual Building
+
+In total, I spent about a day and a half getting all this together. After all,
+the CMake build and the Visual Studio build both take about a half an hour. And,
+if you're like me, you don't have Visual Studio or CMake, so downloading and
+installing those tools takes some time.
