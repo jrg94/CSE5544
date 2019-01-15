@@ -12,12 +12,20 @@ portion of the assignment.
 
 ## Favorite Image
 
+Of the four visualizations above, my favorite visualization is:
+
+![Favorite Viz]()
+
 ## Features
 
 In this section, I'll be covering the two best and one worst feature of
 the two tools I used: VTK and D3.
 
 ### VTK
+
+VTK, or the Visualization Toolkit, is a visualization platform that has API
+support in a handful of popular languages like Python, Java, and C++. In the
+following sections, I'll cover the two best features and the worst feature.
 
 #### Best Two Features
 
