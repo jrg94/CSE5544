@@ -28,4 +28,6 @@ According to the official documentation, installing VTK is a 7-step process:
 In total, I spent about a day and a half getting all this together. After all,
 the CMake build and the Visual Studio build both take about a half an hour. And,
 if you're like me, you don't have Visual Studio or CMake, so downloading and
-installing those tools takes some time.
+installing those tools takes some time. In addition, the directions include some
+implicit instructions on how to run CMake and Visual Studio, so I had to spend
+some time learning the ropes there as well.
