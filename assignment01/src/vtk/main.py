@@ -17,7 +17,7 @@ def main():
 
     view = vtk.vtkContextView()
     view.GetRenderer().SetBackground(1.0, 1.0, 1.0)
-    view.GetRenderWindow().SetSize(400, 300)
+    view.GetRenderWindow().SetSize(800, 800)
 
     chart = vtk.vtkChartXY()
     view.GetScene().AddItem(chart)
@@ -25,32 +25,26 @@ def main():
 
     table = vtk.vtkTable()
 
+    # Create x-axis collection
     arrX = vtk.vtkFloatArray()
     arrX.SetName('X Axis')
 
+    # Create cosine collection
     arrC = vtk.vtkFloatArray()
-    arrC.SetName('Cosine')
+    arrC.SetName('Age')
 
-    arrS = vtk.vtkFloatArray()
-    arrS.SetName('Sine')
-
-    arrT = vtk.vtkFloatArray()
-    arrT.SetName('Sine-Cosine')
-
+    # Add columns to table
     table.AddColumn(arrX)
     table.AddColumn(arrC)
-    table.AddColumn(arrS)
-    table.AddColumn(arrT)
 
-    numPoints = 100
 
-    inc = 7.5 / (numPoints - 1)
+    # Populate columns
+    numPoints = len(dict_list)
     table.SetNumberOfRows(numPoints)
     for i in range(numPoints):
-        table.SetValue(i, 0, i * inc)
-        table.SetValue(i, 1, math.cos(i * inc))
-        table.SetValue(i, 2, math.sin(i * inc))
-        table.SetValue(i, 3, math.sin(i * inc) - math.cos(i * inc))
+        table.SetValue(i, 0, i)
+        table.SetValue(i, 1, dict_list[i]['Age'])
+
 
     # Cos
     points = chart.AddPlot(vtk.vtkChart.POINTS)
@@ -59,19 +53,7 @@ def main():
     points.SetWidth(1.0)
     points.SetMarkerStyle(vtk.vtkPlotPoints.CROSS)
 
-    # Sin
-    points = chart.AddPlot(vtk.vtkChart.POINTS)
-    points.SetInputData(table, 0, 2)
-    points.SetColor(0, 0, 0, 255)
-    points.SetWidth(1.0)
-    points.SetMarkerStyle(vtk.vtkPlotPoints.PLUS)
 
-    # Sin - Cos
-    points = chart.AddPlot(vtk.vtkChart.POINTS)
-    points.SetInputData(table, 0, 3)
-    points.SetColor(0, 0, 255, 255)
-    points.SetWidth(1.0)
-    points.SetMarkerStyle(vtk.vtkPlotPoints.CIRCLE)
 
     view.GetRenderWindow().SetMultiSamples(0)
     view.GetInteractor().Initialize()
