@@ -1,6 +1,5 @@
 import vtk
 import csv
-import math
 
 
 def get_csv_as_dict_list():
@@ -12,14 +11,13 @@ def get_csv_as_dict_list():
     return dict_list
 
 
-def main():
-    dict_list = get_csv_as_dict_list()
-
+def scatter_plot(dict_list, key):
     view = vtk.vtkContextView()
     view.GetRenderer().SetBackground(1.0, 1.0, 1.0)
     view.GetRenderWindow().SetSize(800, 800)
 
     chart = vtk.vtkChartXY()
+    vtk.vtkChart
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
 
@@ -37,14 +35,12 @@ def main():
     table.AddColumn(arrX)
     table.AddColumn(arrC)
 
-
     # Populate columns
     numPoints = len(dict_list)
     table.SetNumberOfRows(numPoints)
     for i in range(numPoints):
         table.SetValue(i, 0, i)
-        table.SetValue(i, 1, dict_list[i]['Age'])
-
+        table.SetValue(i, 1, dict_list[i][key])
 
     # Cos
     points = chart.AddPlot(vtk.vtkChart.POINTS)
@@ -53,13 +49,14 @@ def main():
     points.SetWidth(1.0)
     points.SetMarkerStyle(vtk.vtkPlotPoints.CROSS)
 
-
-
     view.GetRenderWindow().SetMultiSamples(0)
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
 
 
+def main():
+    dict_list = get_csv_as_dict_list()
+    scatter_plot(dict_list, "Age")
 
 
 if __name__ == '__main__':
