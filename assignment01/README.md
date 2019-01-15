@@ -46,13 +46,19 @@ According to the official documentation, installing VTK is a 7-step process:
 7. Manual Building
 
 In total, I spent about a day and a half getting all this together. After all,
-the CMake build and the Visual Studio build both take about a half an hour. And,
+the CMake build and the Visual Studio build both take over an hour. And,
 if you're like me, you don't have Visual Studio or CMake, so downloading and
-installing those tools takes some time. In addition, the directions include some
-implicit instructions on how to run CMake and Visual Studio, so I had to spend
-some time learning the ropes there as well.
+installing those tools takes some time.
 
-Fun Fact: In the time it took me to write this section, the Visual Studio build
+In addition, the directions include some implicit instructions on how to run
+CMake and Visual Studio, so I had to spend some time learning the ropes there
+as well.
+
+After fighting with all that, I had to install Conda to install the Python VTK
+package. I'm not sure if there's an easier way to do all this, but there are
+certainly no tutorials to help.
+
+*Fun Fact*: In the time it took me to write this section, the Visual Studio build
 was only 25% complete.
 
 ### D3
