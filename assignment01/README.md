@@ -52,4 +52,7 @@ installing those tools takes some time. In addition, the directions include some
 implicit instructions on how to run CMake and Visual Studio, so I had to spend
 some time learning the ropes there as well.
 
+Fun Fact: In the time it took me to write this section, the Visual Studio build
+was only 25% complete.
+
 ### D3
