@@ -3,6 +3,11 @@ import csv
 
 
 def get_csv_as_dict_list():
+    """
+    Converts a csv file to a dictionary using DictReader
+
+    :return: a list of dictionaries
+    """
     dict_list = []
     with open('../../data/EHRdataSample.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file, delimiter=',')
@@ -30,14 +35,20 @@ def screen_shot(window, file_name):
     writer.Write()
 
 
-def dict_list_to_bins(dict_list, bin_key):
+def dict_list_to_bins(dict_list, bin_key, comparison_key=None):
     dict_bins = {}
     for item in dict_list:
         bin_val = item[bin_key]
         if dict_bins.get(bin_val, None):
-            dict_bins[bin_val] += 1
+            if comparison_key:
+                dict_bins[bin_val] += float(item[comparison_key])
+            else:
+                dict_bins[bin_val] += 1
         else:
-            dict_bins[bin_val] = 1
+            if comparison_key:
+                dict_bins[bin_val] = float(item[comparison_key])
+            else:
+                dict_bins[bin_val] = 1
     return dict_bins
 
 
@@ -54,10 +65,24 @@ def label_axes(chart, x_label: str, y_label: str):
     chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle(y_label)
 
 
-def add_data_column(name):
+def create_data_column(name: str):
+    """
+    Creates a data column by name
+
+    :param name: the name of the data column
+    :return: the data column
+    """
     col = vtk.vtkFloatArray()
     col.SetName(name)
     return col
+
+
+def add_column_to_chart(chart, table, index: int, color: tuple):
+    points = chart.AddPlot(vtk.vtkChart.POINTS)
+    points.SetInputData(table, 0, index)
+    points.SetColor(color[0], color[1], color[2], color[3])
+    points.SetWidth(1.0)
+    points.SetMarkerStyle(vtk.vtkPlotPoints.CIRCLE)
 
 
 def scatter_plot(view, dict_list, key_y):
@@ -68,17 +93,21 @@ def scatter_plot(view, dict_list, key_y):
 
     # Create data columns
     table = vtk.vtkTable()
-    arr_age = add_data_column("Age")
-    arr_patient_count = add_data_column("Patient Count")
+    arr_age = create_data_column("Age")
+    arr_patient_count = create_data_column("Patient Count")
+    arr_stress_count = create_data_column("Stress Count")
 
     # Add columns to table
     table.AddColumn(arr_age)
     table.AddColumn(arr_patient_count)
+    table.AddColumn(arr_stress_count)
 
     # Sort dict_list
     dict_list = sorted(dict_list, key=lambda data: float(data[key_y]))
-    data_bins = dict_list_to_bins(dict_list, key_y)
-    print(data_bins)
+    age_to_count_map = dict_list_to_bins(dict_list, key_y)
+    age_to_stress_count_map = dict_list_to_bins(dict_list, key_y, "Stress")
+
+    print(age_to_stress_count_map)
 
     # Populate columns
     numPoints = len(dict_list)
@@ -86,14 +115,12 @@ def scatter_plot(view, dict_list, key_y):
     for i in range(numPoints):
         key_y_val = dict_list[i][key_y]
         table.SetValue(i, 0, key_y_val)
-        table.SetValue(i, 1, data_bins[key_y_val])
+        table.SetValue(i, 1, age_to_count_map[key_y_val])
+        table.SetValue(i, 2, age_to_stress_count_map[key_y_val])
 
     # Key
-    points = chart.AddPlot(vtk.vtkChart.POINTS)
-    points.SetInputData(table, 0, 1)
-    points.SetColor(0, 100, 0, 255)
-    points.SetWidth(1.0)
-    points.SetMarkerStyle(vtk.vtkPlotPoints.CIRCLE)
+    add_column_to_chart(chart, table, 1, (0, 100, 0, 255))
+    add_column_to_chart(chart, table, 2, (100, 0, 0, 255))
 
     view.GetRenderWindow().SetMultiSamples(0)
 
@@ -108,7 +135,7 @@ def main():
     scatter_plot(view, dict_list, "Age")
 
     # Screen shot
-    # screen_shot(view.GetRenderWindow(), "count-by-age-plot")
+    screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-plot")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
