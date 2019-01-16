@@ -20,7 +20,7 @@ As far as VTK is concerned, I used the Python library to generate my screenshots
 
 The following visualizations is a plot of incident counts versus age. 
 
-![Counts vs. Age](assets/count-by-age-with-stress-and-anxiety-plot.png)
+![Counts vs. Age][2]
 
 When I was first looking at the healthcare data, I struggled a lot with finding ways
 to visualize it. After all, a large portion of the data is categorical (Demographics, 
@@ -107,3 +107,4 @@ was only 25% complete.
 ### D3
 
 [1]: docs/assignment01.pdf
+[2]: assets/count-by-age-with-stress-and-anxiety-plot.png
