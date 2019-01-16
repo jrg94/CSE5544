@@ -15,6 +15,9 @@ In this section, I'll share and explain my four visualizations.
 ### VTK
 
 As far as VTK is concerned, I used the Python library to generate my screenshots.
+
+#### Counts vs. Age Scatter Plot
+
 The following visualizations is a plot of incident counts versus age. 
 
 ![Counts vs. Age](assets/count-by-age-with-stress-and-anxiety-plot.png)
@@ -35,6 +38,20 @@ to then bin patients by age to see if I could find any trends in the data.
 Right away we can sew there's a larger curve trending toward age 25 from
 both sides. I'm not sure why, but for whatever reason it seems this
 clinical data is skewed toward people in their 20s.
+
+Of course, the assignment said this type of graph would be boring on its own,
+so I decided to take my analysis a step further. After scanning through the data set,
+the only other quantitative data set I could find were the incidents (aka diagnosis flags).
+
+At that point, I figured it would be interesting to see if we could spot any trends
+between the incidents and the patient ages. As a result, I decided to bin a few of
+the incidents by count and plot them right over top of the age counts plot. 
+
+Unfortunately, what I found was not all that interesting. As the number of patients
+per age bracket went up, so do the incidents. In fact, they appear to be almost
+directly proportional. No age had an frightening upticks in incidents.
+
+#### 
 
 ## Favorite Image
 
