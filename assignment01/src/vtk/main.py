@@ -41,7 +41,15 @@ def dict_list_to_bins(dict_list, bin_key):
     return dict_bins
 
 
-def label_axes(chart, x_label, y_label):
+def label_axes(chart, x_label: str, y_label: str):
+    """
+    Labels the chart axes
+
+    :param chart: a chart instance
+    :param x_label: the x-axis label
+    :param y_label: the y-axis label
+    :return: None
+    """
     chart.GetAxis(vtk.vtkAxis.BOTTOM).SetTitle(x_label)
     chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle(y_label)
 
@@ -100,7 +108,7 @@ def main():
     scatter_plot(view, dict_list, "Age")
 
     # Screen shot
-    screen_shot(view.GetRenderWindow(), "count-by-age-plot")
+    # screen_shot(view.GetRenderWindow(), "count-by-age-plot")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
