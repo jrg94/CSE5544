@@ -19,6 +19,23 @@ The following visualizations is a plot of incident counts versus age.
 
 ![Counts vs. Age](assets/count-by-age-with-stress-and-anxiety-plot.png)
 
+When I was first looking at the healthcare data, I struggled a lot with finding ways
+to visualize it. After all, a large portion of the data is categorical (Demographics, 
+Injury Info, Encounter Info, etc.), so it was tough to work with in VTK. 
+
+After fiddling with the scatter plot in VTK for awhile (as seen in the assets folder), 
+I thought it might be cool to look at patient ages and corresponding incidents.
+For instance, I asked myself the following questions:
+
+1. Does age influence incident reports (Anxiety, Vision, Stess, etc.)?
+2. How can we visualize that?
+
+Using my experience with the scatter plot, I thought it might be interesting
+to then bin patients by age to see if I could find any trends in the data.
+Right away we can sew there's a larger curve trending toward age 25 from
+both sides. I'm not sure why, but for whatever reason it seems this
+clinical data is skewed toward people in their 20s.
+
 ## Favorite Image
 
 Of the four visualizations above, my favorite visualization is:
