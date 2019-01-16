@@ -97,7 +97,7 @@ def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: t
     :param mark: a VTK marking
     :return: None
     """
-    points = chart.AddPlot(vtk.vtkChart.POINTS)
+    points = chart.AddPlot(vtk.vtkChart.LINE)
     points.SetInputData(table, 0, index)
     points.SetColor(color[0], color[1], color[2], color[3])
     points.SetWidth(1.0)
@@ -166,7 +166,7 @@ def main():
     scatter_plot(view, dict_list, "Age")
 
     # Screen shot
-    # screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-and-anxiety-plot")
+    screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-and-anxiety-line-plot")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()

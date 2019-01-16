@@ -45,11 +45,12 @@ the only other quantitative data set I could find were the incidents (aka diagno
 
 At that point, I figured it would be interesting to see if we could spot any trends
 between the incidents and the patient ages. As a result, I decided to bin a few of
-the incidents by count and plot them right over top of the age counts plot. 
+the incidents by count and plot them right over top of the age counts plot. To further
+emphasize the trends, I also decided to draw lines between each point.
 
 Unfortunately, what I found was not all that interesting. As the number of patients
 per age bracket went up, so do the incidents. In fact, they appear to be almost
-directly proportional. No age had an frightening upticks in incidents.
+directly proportional. No age had any frightening upticks in incidents.
 
 #### 
 
@@ -107,4 +108,4 @@ was only 25% complete.
 ### D3
 
 [1]: docs/assignment01.pdf
-[2]: assets/count-by-age-with-stress-and-anxiety-plot.png
+[2]: assets/count-by-age-with-stress-and-anxiety-line-plot.png
