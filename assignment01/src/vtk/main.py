@@ -128,7 +128,6 @@ def bar_chart(view, dict_list: list):
     for i in range(num_points):
         key_y_val = dict_list[i]["Gender"]
         gender = 2
-        print(key_y_val)
         if key_y_val == "MALE":
             gender = 1
         elif key_y_val == "FEMALE":
@@ -138,6 +137,7 @@ def bar_chart(view, dict_list: list):
 
     add_column_to_chart(chart, table, 1, (0, 200, 0, 200), None, vtkChart.BAR)
 
+    # Labels the x-axis ticks
     labels = vtkStringArray()
     labels.SetNumberOfValues(3)
     labels.SetValue(0, "FEMALE")
@@ -149,6 +149,12 @@ def bar_chart(view, dict_list: list):
     genders.SetValue(1, 1)
     genders.SetValue(2, 2)
     chart.GetAxis(vtk.vtkAxis.BOTTOM).SetCustomTickPositions(genders, labels)
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetBehavior(1)
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetMinimum(-1)
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetMaximum(3)
+    #hart.GetAxis(vtk.vtkAxis.BOTTOM).GetLabelProperties().SetOrientation(90)
+    #chart.GetAxis(vtk.vtkAxis.BOTTOM).GetLabelProperties().SetVerticalJustification(VTK_TEXT_CENTERED)
+    #chart.GetAxis(vtk.vtkAxis.BOTTOM).GetLabelProperties().SetJustification(VTK_TEXT_RIGHT)
 
     view.GetRenderWindow().SetMultiSamples(0)
 
@@ -216,7 +222,7 @@ def main():
     bar_chart(view, dict_list)
 
     # Screen shot
-    screen_shot(view.GetRenderWindow(), "count-by-gender-bar-graph")
+    screen_shot(view.GetRenderWindow(), "count-by-gender-bar-graph-formatted")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
