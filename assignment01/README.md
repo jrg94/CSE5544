@@ -105,6 +105,10 @@ certainly no tutorials to help.
 *Fun Fact*: In the time it took me to write this section, the Visual Studio build
 was only 25% complete.
 
+Also, while not exactly a feature, the Python VTK documentation is slim. In order
+to learn the tool in a week, I had to do a lot of C++ to Python conversions which
+wasn't ideal. There needs to be more plotting documentation in Python.
+
 ### D3
 
 [1]: docs/assignment01.pdf
