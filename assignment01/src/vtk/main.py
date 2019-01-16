@@ -30,6 +30,17 @@ def screen_shot(window, file_name):
     writer.Write()
 
 
+def dict_list_to_bins(dict_list, bin_key):
+    dict_bins = {}
+    for item in dict_list:
+        bin_val = item[bin_key]
+        if dict_bins.get(bin_val, None):
+            dict_bins[bin_val] += 1
+        else:
+            dict_bins[bin_val] = 1
+    return dict_bins
+
+
 def scatter_plot(view, dict_list, key_y):
     chart = vtk.vtkChartXY()
     view.GetScene().AddItem(chart)
@@ -38,14 +49,14 @@ def scatter_plot(view, dict_list, key_y):
     table = vtk.vtkTable()
 
     # Create x-axis collection
-    arrX = vtk.vtkIntArray()
-    arrX.SetName("X-axis")
-    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetTitle("Index")
+    arrX = vtk.vtkFloatArray()
+    arrX.SetName("Age")
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetTitle("Age")
 
     # Create cosine collection
     arrC = vtk.vtkFloatArray()
-    arrC.SetName(key_y)
-    chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle(key_y)
+    arrC.SetName("Patient Count")
+    chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle("Count")
 
     # Add columns to table
     table.AddColumn(arrX)
@@ -53,15 +64,16 @@ def scatter_plot(view, dict_list, key_y):
 
     # Sort dict_list
     dict_list = sorted(dict_list, key=lambda data: float(data[key_y]))
+    data_bins = dict_list_to_bins(dict_list, key_y)
+    print(data_bins)
 
     # Populate columns
     numPoints = len(dict_list)
     table.SetNumberOfRows(numPoints)
     for i in range(numPoints):
-        table.SetValue(i, 0, i)
-        table.SetValue(i, 1, dict_list[i][key_y])
-
-    print(dict_list)
+        key_y_val = dict_list[i][key_y]
+        table.SetValue(i, 0, key_y_val)
+        table.SetValue(i, 1, data_bins[key_y_val])
 
     # Key
     points = chart.AddPlot(vtk.vtkChart.POINTS)
@@ -83,7 +95,7 @@ def main():
     scatter_plot(view, dict_list, "Age")
 
     # Screen shot
-    screen_shot(view.GetRenderWindow(), "age-by-index-scatter-plot-sorted")
+    screen_shot(view.GetRenderWindow(), "count-by-age-plot")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
