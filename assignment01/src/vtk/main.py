@@ -101,7 +101,9 @@ def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: t
     points.SetInputData(table, 0, index)
     points.SetColor(color[0], color[1], color[2], color[3])
     points.SetWidth(1.0)
-    points.SetMarkerStyle(mark)
+
+    if mark:
+        points.SetMarkerStyle(mark)
 
 
 def bar_chart(view, dict_list: list):
@@ -128,7 +130,7 @@ def bar_chart(view, dict_list: list):
         table.SetValue(i, 0, key_y_val)
         table.SetValue(i, 1, age_to_count_map[key_y_val])
 
-    add_column_to_chart(chart, table, 1, (0, 200, 0, 200), vtk.vtkPlotPoints.CIRCLE)
+    add_column_to_chart(chart, table, 1, (0, 200, 0, 200), None, vtkChart.BAR)
 
     view.GetRenderWindow().SetMultiSamples(0)
 
@@ -196,7 +198,7 @@ def main():
     bar_chart(view, dict_list)
 
     # Screen shot
-    #screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-and-anxiety-line-plot")
+    screen_shot(view.GetRenderWindow(), "count-by-age-bar-graph")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
