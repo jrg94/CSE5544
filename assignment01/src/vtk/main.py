@@ -1,4 +1,4 @@
-import vtk
+from vtk import *
 import csv
 
 
@@ -11,13 +11,23 @@ def get_csv_as_dict_list():
     return dict_list
 
 
-def scatter_plot(dict_list, key):
+def screen_shot(window, name):
+    w2if = vtk.vtkWindowToImageFilter()
+    w2if.SetInput(window)
+    w2if.Update()
+
+    writer = vtk.vtkPNGWriter()
+    writer.SetFileName(name + ".png")
+    writer.SetInputData(w2if.GetOutput())
+    writer.Write()
+
+
+def scatter_plot(dict_list, key, pic_name):
     view = vtk.vtkContextView()
     view.GetRenderer().SetBackground(1.0, 1.0, 1.0)
     view.GetRenderWindow().SetSize(800, 800)
 
     chart = vtk.vtkChartXY()
-    vtk.vtkChart
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
 
@@ -42,7 +52,7 @@ def scatter_plot(dict_list, key):
         table.SetValue(i, 0, i)
         table.SetValue(i, 1, dict_list[i][key])
 
-    # Cos
+    # Key
     points = chart.AddPlot(vtk.vtkChart.POINTS)
     points.SetInputData(table, 0, 1)
     points.SetColor(0, 100, 0, 255)
@@ -50,13 +60,20 @@ def scatter_plot(dict_list, key):
     points.SetMarkerStyle(vtk.vtkPlotPoints.CROSS)
 
     view.GetRenderWindow().SetMultiSamples(0)
+    view.GetRenderWindow().Render()
+
+    # Screen shot
+    screen_shot(view.GetRenderWindow(), pic_name)
+
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
 
 
 def main():
     dict_list = get_csv_as_dict_list()
-    scatter_plot(dict_list, "Age")
+    scatter_plot(dict_list, "Age", "age-by-index-scatter-plot")
+    #scatter_plot(dict_list, "Age_TBI")
+
 
 
 if __name__ == '__main__':
