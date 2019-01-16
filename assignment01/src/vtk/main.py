@@ -11,13 +11,20 @@ def get_csv_as_dict_list():
     return dict_list
 
 
-def screen_shot(window, name):
+def screen_shot(window, file_name):
+    """
+    Given a window and a name, it creates a screenshot alongside this source code.
+
+    :param window: a vtkRenderer object
+    :param file_name: a file name without the extension
+    :return: None
+    """
     w2if = vtk.vtkWindowToImageFilter()
     w2if.SetInput(window)
     w2if.Update()
 
     writer = vtk.vtkPNGWriter()
-    writer.SetFileName(name + ".png")
+    writer.SetFileName(file_name + ".png")
     writer.SetInputData(w2if.GetOutput())
     writer.Write()
 
