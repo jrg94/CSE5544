@@ -10,6 +10,15 @@ portion of the assignment.
 
 ## Visualizations
 
+In this section, I'll share and explain my four visualizations.
+
+### VTK
+
+As far as VTK is concerned, I used the Python library to generate my screenshots.
+The following visualizations is a plot of incident counts versus age. 
+
+![Counts vs. Age](assets/count-by-age-with-stress-and-anxiety-plot.png)
+
 ## Favorite Image
 
 Of the four visualizations above, my favorite visualization is:
