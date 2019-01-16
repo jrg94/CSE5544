@@ -35,7 +35,16 @@ def screen_shot(window, file_name):
     writer.Write()
 
 
-def dict_list_to_bins(dict_list, bin_key, comparison_key=None):
+def dict_list_to_bins(dict_list: list, bin_key: str, comparison_key=None) -> dict:
+    """
+    A dictionary binning function which reduces a set of data
+    to a set of bins.
+
+    :param dict_list: a list of dictionaries
+    :param bin_key: a key for binning
+    :param comparison_key: a key for counting
+    :return: a dictionary
+    """
     dict_bins = {}
     for item in dict_list:
         bin_val = item[bin_key]
@@ -77,7 +86,17 @@ def create_data_column(name: str):
     return col
 
 
-def add_column_to_chart(chart, table, index: int, color: tuple, mark):
+def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: tuple, mark: vtkPlotPoints):
+    """
+    Adds a column to a chart given some information
+
+    :param chart: a VTK XY Chart
+    :param table: a VTK table
+    :param index: some column index
+    :param color: a color tuple
+    :param mark: a VTK marking
+    :return: None
+    """
     points = chart.AddPlot(vtk.vtkChart.POINTS)
     points.SetInputData(table, 0, index)
     points.SetColor(color[0], color[1], color[2], color[3])
@@ -85,7 +104,16 @@ def add_column_to_chart(chart, table, index: int, color: tuple, mark):
     points.SetMarkerStyle(mark)
 
 
-def scatter_plot(view, dict_list, key_y):
+def scatter_plot(view, dict_list: list, key_y: str):
+    """
+    Generates a scatter plot from a list of dictionaries,
+    a view, and a data key.
+
+    :param view: a VTK view
+    :param dict_list: a list of dictionaries
+    :param key_y: a data key
+    :return: None
+    """
     chart = vtk.vtkChartXY()
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
