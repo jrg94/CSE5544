@@ -2,7 +2,7 @@
 
 For the first assignment, we were asked to review two visualization tools.
 Having worked with WebGL in the past, that was my first choice. I also decided
-to explore VTK. You can find both of those reviews in the docs folder.
+to explore VTK. You can find both of those reviews in the [docs][1] folder.
 
 As for the second portion of the assignment, we were asked to use two tools
 to create a couple visualizations. The remainder of this document covers that
@@ -105,3 +105,5 @@ certainly no tutorials to help.
 was only 25% complete.
 
 ### D3
+
+[1]: docs/assignment01.pdf
