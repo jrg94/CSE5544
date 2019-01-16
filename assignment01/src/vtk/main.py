@@ -41,26 +41,31 @@ def dict_list_to_bins(dict_list, bin_key):
     return dict_bins
 
 
+def label_axes(chart, x_label, y_label):
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetTitle(x_label)
+    chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle(y_label)
+
+
+def add_data_column(name):
+    col = vtk.vtkFloatArray()
+    col.SetName(name)
+    return col
+
+
 def scatter_plot(view, dict_list, key_y):
     chart = vtk.vtkChartXY()
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
+    label_axes(chart, "Age", "Count")
 
+    # Create data columns
     table = vtk.vtkTable()
-
-    # Create x-axis collection
-    arrX = vtk.vtkFloatArray()
-    arrX.SetName("Age")
-    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetTitle("Age")
-
-    # Create cosine collection
-    arrC = vtk.vtkFloatArray()
-    arrC.SetName("Patient Count")
-    chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle("Count")
+    arr_age = add_data_column("Age")
+    arr_patient_count = add_data_column("Patient Count")
 
     # Add columns to table
-    table.AddColumn(arrX)
-    table.AddColumn(arrC)
+    table.AddColumn(arr_age)
+    table.AddColumn(arr_patient_count)
 
     # Sort dict_list
     dict_list = sorted(dict_list, key=lambda data: float(data[key_y]))
