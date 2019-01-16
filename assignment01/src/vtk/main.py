@@ -74,19 +74,19 @@ def label_axes(chart, x_label: str, y_label: str):
     chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle(y_label)
 
 
-def create_data_column(name: str):
+def create_data_column(name: str, array):
     """
     Creates a data column by name
 
     :param name: the name of the data column
     :return: the data column
     """
-    col = vtk.vtkFloatArray()
+    col = array
     col.SetName(name)
     return col
 
 
-def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: tuple, mark: vtkPlotPoints, type=vtkChart.LINE):
+def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: tuple, mark, type=vtkChart.LINE):
     """
     Adds a column to a chart given some information
 
@@ -110,27 +110,45 @@ def bar_chart(view, dict_list: list):
     chart = vtkChartXY()
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
-    label_axes(chart, "Age", "Count")
+    label_axes(chart, "Gender", "Count")
 
     table = vtk.vtkTable()
-    arr_age = create_data_column("Age")
-    arr_patient_count = create_data_column("Patient Count")
+    arr_age = create_data_column("Gender", vtkIntArray())
+    arr_patient_count = create_data_column("Count", vtkIntArray())
 
     table.AddColumn(arr_age)
     table.AddColumn(arr_patient_count)
 
     # Sort dict_list
-    dict_list = sorted(dict_list, key=lambda data: float(data["Age"]))
-    age_to_count_map = dict_list_to_bins(dict_list, "Age")
+    dict_list = sorted(dict_list, key=lambda data: data["Gender"])
+    age_to_count_map = dict_list_to_bins(dict_list, "Gender")
 
     num_points = len(dict_list)
     table.SetNumberOfRows(num_points)
     for i in range(num_points):
-        key_y_val = dict_list[i]["Age"]
-        table.SetValue(i, 0, key_y_val)
+        key_y_val = dict_list[i]["Gender"]
+        gender = 2
+        print(key_y_val)
+        if key_y_val == "MALE":
+            gender = 1
+        elif key_y_val == "FEMALE":
+            gender = 0
+        table.SetValue(i, 0, gender)
         table.SetValue(i, 1, age_to_count_map[key_y_val])
 
     add_column_to_chart(chart, table, 1, (0, 200, 0, 200), None, vtkChart.BAR)
+
+    labels = vtkStringArray()
+    labels.SetNumberOfValues(3)
+    labels.SetValue(0, "FEMALE")
+    labels.SetValue(1, "MALE")
+    labels.SetValue(2, "No valid match found.  Defaulted")
+    genders = vtkDoubleArray()
+    genders.SetNumberOfValues(3)
+    genders.SetValue(0, 0)
+    genders.SetValue(1, 1)
+    genders.SetValue(2, 2)
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetCustomTickPositions(genders, labels)
 
     view.GetRenderWindow().SetMultiSamples(0)
 
@@ -152,10 +170,10 @@ def scatter_plot(view, dict_list: list, key_y: str):
 
     # Create data columns
     table = vtk.vtkTable()
-    arr_age = create_data_column("Age")
-    arr_patient_count = create_data_column("Patient Count")
-    arr_stress_count = create_data_column("Stress Count")
-    arr_anxiety_count = create_data_column("Anxiety Count")
+    arr_age = create_data_column("Age", vtkFloatArray())
+    arr_patient_count = create_data_column("Patient Count", vtkFloatArray())
+    arr_stress_count = create_data_column("Stress Count", vtkFloatArray())
+    arr_anxiety_count = create_data_column("Anxiety Count", vtkFloatArray())
 
     # Add columns to table
     table.AddColumn(arr_age)
@@ -198,7 +216,7 @@ def main():
     bar_chart(view, dict_list)
 
     # Screen shot
-    screen_shot(view.GetRenderWindow(), "count-by-age-bar-graph")
+    screen_shot(view.GetRenderWindow(), "count-by-gender-bar-graph")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
