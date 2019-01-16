@@ -77,12 +77,12 @@ def create_data_column(name: str):
     return col
 
 
-def add_column_to_chart(chart, table, index: int, color: tuple):
+def add_column_to_chart(chart, table, index: int, color: tuple, mark):
     points = chart.AddPlot(vtk.vtkChart.POINTS)
     points.SetInputData(table, 0, index)
     points.SetColor(color[0], color[1], color[2], color[3])
     points.SetWidth(1.0)
-    points.SetMarkerStyle(vtk.vtkPlotPoints.CIRCLE)
+    points.SetMarkerStyle(mark)
 
 
 def scatter_plot(view, dict_list, key_y):
@@ -96,31 +96,34 @@ def scatter_plot(view, dict_list, key_y):
     arr_age = create_data_column("Age")
     arr_patient_count = create_data_column("Patient Count")
     arr_stress_count = create_data_column("Stress Count")
+    arr_anxiety_count = create_data_column("Anxiety Count")
 
     # Add columns to table
     table.AddColumn(arr_age)
     table.AddColumn(arr_patient_count)
     table.AddColumn(arr_stress_count)
+    table.AddColumn(arr_anxiety_count)
 
     # Sort dict_list
     dict_list = sorted(dict_list, key=lambda data: float(data[key_y]))
     age_to_count_map = dict_list_to_bins(dict_list, key_y)
     age_to_stress_count_map = dict_list_to_bins(dict_list, key_y, "Stress")
-
-    print(age_to_stress_count_map)
+    age_to_anxiety_count_map = dict_list_to_bins(dict_list, key_y, "Anxiety")
 
     # Populate columns
-    numPoints = len(dict_list)
-    table.SetNumberOfRows(numPoints)
-    for i in range(numPoints):
+    num_points = len(dict_list)
+    table.SetNumberOfRows(num_points)
+    for i in range(num_points):
         key_y_val = dict_list[i][key_y]
         table.SetValue(i, 0, key_y_val)
         table.SetValue(i, 1, age_to_count_map[key_y_val])
         table.SetValue(i, 2, age_to_stress_count_map[key_y_val])
+        table.SetValue(i, 3, age_to_anxiety_count_map[key_y_val])
 
     # Key
-    add_column_to_chart(chart, table, 1, (0, 100, 0, 255))
-    add_column_to_chart(chart, table, 2, (100, 0, 0, 255))
+    add_column_to_chart(chart, table, 1, (0, 200, 0, 200), vtk.vtkPlotPoints.CIRCLE)
+    add_column_to_chart(chart, table, 2, (200, 0, 0, 200), vtk.vtkPlotPoints.CROSS)
+    add_column_to_chart(chart, table, 3, (0, 0, 200, 200), vtk.vtkPlotPoints.PLUS)
 
     view.GetRenderWindow().SetMultiSamples(0)
 
@@ -135,7 +138,7 @@ def main():
     scatter_plot(view, dict_list, "Age")
 
     # Screen shot
-    screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-plot")
+    # screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-and-anxiety-plot")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
