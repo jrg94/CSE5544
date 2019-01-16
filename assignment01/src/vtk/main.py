@@ -86,7 +86,7 @@ def create_data_column(name: str):
     return col
 
 
-def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: tuple, mark: vtkPlotPoints):
+def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: tuple, mark: vtkPlotPoints, type=vtkChart.LINE):
     """
     Adds a column to a chart given some information
 
@@ -97,11 +97,40 @@ def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: t
     :param mark: a VTK marking
     :return: None
     """
-    points = chart.AddPlot(vtk.vtkChart.LINE)
+    points = chart.AddPlot(type)
     points.SetInputData(table, 0, index)
     points.SetColor(color[0], color[1], color[2], color[3])
     points.SetWidth(1.0)
     points.SetMarkerStyle(mark)
+
+
+def bar_chart(view, dict_list: list):
+    chart = vtkChartXY()
+    view.GetScene().AddItem(chart)
+    chart.SetShowLegend(True)
+    label_axes(chart, "Age", "Count")
+
+    table = vtk.vtkTable()
+    arr_age = create_data_column("Age")
+    arr_patient_count = create_data_column("Patient Count")
+
+    table.AddColumn(arr_age)
+    table.AddColumn(arr_patient_count)
+
+    # Sort dict_list
+    dict_list = sorted(dict_list, key=lambda data: float(data["Age"]))
+    age_to_count_map = dict_list_to_bins(dict_list, "Age")
+
+    num_points = len(dict_list)
+    table.SetNumberOfRows(num_points)
+    for i in range(num_points):
+        key_y_val = dict_list[i]["Age"]
+        table.SetValue(i, 0, key_y_val)
+        table.SetValue(i, 1, age_to_count_map[key_y_val])
+
+    add_column_to_chart(chart, table, 1, (0, 200, 0, 200), vtk.vtkPlotPoints.CIRCLE)
+
+    view.GetRenderWindow().SetMultiSamples(0)
 
 
 def scatter_plot(view, dict_list: list, key_y: str):
@@ -163,10 +192,11 @@ def main():
     view.GetRenderer().SetBackground(1.0, 1.0, 1.0)
     view.GetRenderWindow().SetSize(800, 800)
 
-    scatter_plot(view, dict_list, "Age")
+    # scatter_plot(view, dict_list, "Age")
+    bar_chart(view, dict_list)
 
     # Screen shot
-    screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-and-anxiety-line-plot")
+    #screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-and-anxiety-line-plot")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
