@@ -190,7 +190,11 @@ Also, while not exactly a feature, the Python VTK documentation is slim. In orde
 to learn the tool in a week, I had to do a lot of C++ to Python conversions which
 wasn't ideal. There needs to be more plotting documentation in Python.
 
-### D3
+### Paraview
+
+#### Best Two Features
+
+#### Worst Feature
 
 [1]: docs/assignment01.pdf
 [2]: assets/vtk/count-by-age-with-stress-and-anxiety-line-plot.png
