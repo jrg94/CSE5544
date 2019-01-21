@@ -272,7 +272,7 @@ this is a similar complaint that I have with VTK, so the problem stems from
 there.
 
 [1]: docs/assignment01.pdf
-[2]: assets/vtk/count-by-age-with-stress-and-anxiety-line-plot.png
-[3]: assets/vtk/count-by-gender-3-column-bar-graph-clean.png
+[2]: assets/vtk/count-by-age-final.png
+[3]: assets/vtk/count-by-gender-final.png
 [4]: assets/paraview/incident-histogram-labeled.png
 [5]: assets/paraview/frequency-vs-age-graph.png
