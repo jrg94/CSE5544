@@ -102,6 +102,16 @@ following sections, I'll cover the two best features and the worst feature.
 
 #### Best Two Features
 
+**One of my favorite features of VTK is the automation**. In particular, I love
+that I can provide data to the library, and it automatically renders it with
+a legend, axes, labels, and points. All I have to control is the data, the type
+of chart, and the colors. Everything else is automated.
+
+Also, **I love how VTK graphs are interactive**. While I've shared only screenshots, 
+you can load up a graph and move it around. In addition, you can hover over bars
+or points and get their value displayed. It's really handy if the data is dense, or
+you just want to check an exact value.
+
 #### Worst Feature
 
 By far, the **worst** feature of VTK is installation. As a PC user, I had to go
