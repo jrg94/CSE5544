@@ -135,6 +135,36 @@ For my final visualization, I decided to take a look at age again:
 
 ![Frequency vs. Age][5]
 
+When I was looking for another visualization to create, I looked back to my first
+graph for inspiration. As it turns out, every row of data includes information
+about a patient's first mTBI related incident. I thought it would be interesting
+to see if there was a relationship between patient age and when they first
+experienced mTBI symptoms.
+
+To do this, I decided to use a histogram mapped to a line graph. That way we
+could see any age trends along the way. Then, I graphed the same histogram of
+age from before. However, this time I took a histogram of the age of the first
+incident, and plotted it over the age histogram.
+
+Upon first glance, there's not a lot to see except a handful of interesting
+peaks at 9, 25, 31, and 72. In addition, there are a handful of other spikes.
+Do these ages really indicate an increase in the potential for head trauma?
+I was a little concerned.
+
+At that point, I realized that this visualization is actually very, very misleading.
+It would seem that folks who are 9, 25, 31, and 72 are significantly more likely
+to have a mTBI related event, but that isn't true. Upon further inspection,
+I realized this graph has some flawed logic because patients can appear
+multiple times in the same data set. In other words, if a patient shows up more
+than once, they can skew the frequency of first mTBI incidents in their favor.
+
+To fix this problem, we would need to filter the data by patient ID, but Paraview
+doesn't appear to support that feature. So, I chose to leave the visualization
+for the sake of the discussion.
+
+Again, there doesn't appear to be a way to scale the legend. Feel free to let
+me know otherwise. 
+
 ## Favorite Image
 
 Of the four visualizations above, my favorite visualization is:
