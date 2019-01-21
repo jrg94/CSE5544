@@ -18,9 +18,9 @@ As far as VTK is concerned, I used the Python library to generate my screenshots
 
 #### Counts vs. Age Scatter Plot
 
-The following visualizations is a plot of incident counts versus age. 
+The following visualization is a plot of incident counts versus age. 
 
-![Counts vs. Age](assets/count-by-age-with-stress-and-anxiety-plot.png)
+![Counts vs. Age][2]
 
 When I was first looking at the healthcare data, I struggled a lot with finding ways
 to visualize it. After all, a large portion of the data is categorical (Demographics, 
@@ -45,13 +45,43 @@ the only other quantitative data set I could find were the incidents (aka diagno
 
 At that point, I figured it would be interesting to see if we could spot any trends
 between the incidents and the patient ages. As a result, I decided to bin a few of
-the incidents by count and plot them right over top of the age counts plot. 
+the incidents by count and plot them right over top of the age counts plot. To further
+emphasize the trends, I also decided to draw lines between each point.
 
 Unfortunately, what I found was not all that interesting. As the number of patients
 per age bracket went up, so do the incidents. In fact, they appear to be almost
-directly proportional. No age had an frightening upticks in incidents.
+directly proportional. No age had any frightening upticks in incidents.
 
-#### 
+#### Counts vs. Gender Bar Graph
+
+The following visualization is a bar graph of patient counts vs. gender:
+
+![Counts vs. Gender][3]
+
+After looking at some trend data, I thought it would be cool to check out
+some ratio data. In particular, I was interesting in looking at some
+of the disparity between men and women in the healthcare data. 
+
+Since I had already looked at incident data, I decided to analyze the
+injury code data which determines when patients came in for a diagnosis.
+Either they came in the same day of the injury (NSFINJ) or some time later (VCODE). 
+
+To generate this graph, I had to do quite a bit of data analysis which included
+filtering the data set by multiple columns (i.e. MALE & NSFINJ, MALE & VCODE, etc.).
+After completing all the calculations, I had to redesign the x-axis labels
+and provide a numerical for the data. Apparently, VTK can't handle string data
+along the axes automatically.
+
+As it turns out, women came in the same day at a 100% rate which is
+nearly unbelievable. Whereas, men turned up to the doctor just a bit
+over half of the time the same day. Otherwise, they went sometime later.
+
+In addition, it's clear in this case that men were overwhelmingly more likely to
+go to the doctor than women. Whether that means men get hurt and sick more
+often is left up to further analysis. 
+
+I find this style of graph--although simple--very eloquent as it clearly shows
+ratio information between men and women, men and men, and women and women.
 
 ## Favorite Image
 
@@ -71,6 +101,16 @@ support in a handful of popular languages like Python, Java, and C++. In the
 following sections, I'll cover the two best features and the worst feature.
 
 #### Best Two Features
+
+**One of my favorite features of VTK is the automation**. In particular, I love
+that I can provide data to the library, and it automatically renders it with
+a legend, axes, labels, and points. All I have to control is the data, the type
+of chart, and the colors. Everything else is automated.
+
+Also, **I love how VTK graphs are interactive**. While I've shared only screenshots, 
+you can load up a graph and move it around. In addition, you can hover over bars
+or points and get their value displayed. It's really handy if the data is dense, or
+you just want to check an exact value.
 
 #### Worst Feature
 
@@ -104,6 +144,12 @@ certainly no tutorials to help.
 *Fun Fact*: In the time it took me to write this section, the Visual Studio build
 was only 25% complete.
 
+Also, while not exactly a feature, the Python VTK documentation is slim. In order
+to learn the tool in a week, I had to do a lot of C++ to Python conversions which
+wasn't ideal. There needs to be more plotting documentation in Python.
+
 ### D3
 
 [1]: docs/assignment01.pdf
+[2]: assets/count-by-age-with-stress-and-anxiety-line-plot.png
+[3]: assets/count-by-gender-3-column-bar-graph-clean.png

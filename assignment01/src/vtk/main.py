@@ -35,7 +35,16 @@ def screen_shot(window, file_name):
     writer.Write()
 
 
-def dict_list_to_bins(dict_list, bin_key, comparison_key=None):
+def dict_list_to_bins(dict_list: list, bin_key: str, comparison_key=None) -> dict:
+    """
+    A dictionary binning function which reduces a set of data
+    to a set of bins.
+
+    :param dict_list: a list of dictionaries
+    :param bin_key: a key for binning
+    :param comparison_key: a key for counting
+    :return: a dictionary
+    """
     dict_bins = {}
     for item in dict_list:
         bin_val = item[bin_key]
@@ -65,27 +74,175 @@ def label_axes(chart, x_label: str, y_label: str):
     chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle(y_label)
 
 
-def create_data_column(name: str):
+def create_data_column(name: str, array):
     """
     Creates a data column by name
 
     :param name: the name of the data column
     :return: the data column
     """
-    col = vtk.vtkFloatArray()
+    col = array
     col.SetName(name)
     return col
 
 
-def add_column_to_chart(chart, table, index: int, color: tuple, mark):
-    points = chart.AddPlot(vtk.vtkChart.POINTS)
+def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: tuple, mark, type=vtkChart.LINE):
+    """
+    Adds a column to a chart given some information
+
+    :param chart: a VTK XY Chart
+    :param table: a VTK table
+    :param index: some column index
+    :param color: a color tuple
+    :param mark: a VTK marking
+    :return: None
+    """
+    points = chart.AddPlot(type)
     points.SetInputData(table, 0, index)
     points.SetColor(color[0], color[1], color[2], color[3])
     points.SetWidth(1.0)
-    points.SetMarkerStyle(mark)
+
+    if mark:
+        points.SetMarkerStyle(mark)
 
 
-def scatter_plot(view, dict_list, key_y):
+def count_instances_of(dict_list: list, key_x: str, key_y: str) -> dict:
+    """
+    Counts instances of some key versus some other key.
+    More specifically, this function is used to generate a mapping in
+    the form:
+
+    {
+        key_x_value_1:
+        {
+            key_y_value_1: val_1,
+            key_y_value_2: val_2,
+            key_y_value_3: val_3
+        },
+        key_x_value_2:
+        {
+            ...
+        }
+    }
+
+    :param dict_list: a list of dictionary data
+    :param key_x: some key
+    :param key_y: some comparison key
+    :return: a nested dictionary
+    """
+    count = {}
+    for item in dict_list:
+        x = item.get(key_x)
+        y = item.get(key_y)
+
+        if not count.get(x, None):
+            count[x] = {}
+
+        if count.get(x).get(y, None):
+            count[x][y] += 1
+        else:
+            count[x][y] = 1
+
+    return count
+
+
+def get_gender_id(gender: str) -> int:
+    """
+    A helper method for generating gender IDs.
+
+    :param gender: a gender string
+    :return: a gender id
+    """
+    if gender == "FEMALE":
+        gender_id = 0
+    elif gender == "MALE":
+        gender_id = 1
+    else:
+        gender_id = 2
+    return gender_id
+
+
+def bar_chart(view, dict_list: list):
+    """
+    Generates a bar chart.
+
+    :param view: the VTK view
+    :param dict_list: a list of dictionary data points
+    :return: None
+    """
+
+    chart = vtkChartXY()
+    view.GetScene().AddItem(chart)
+    chart.SetShowLegend(True)
+    label_axes(chart, "Gender", "Count")
+    table = vtk.vtkTable()
+
+    # Create table data columns
+    arr_gender = create_data_column("Gender", vtkIntArray())
+    arr_patient_count = create_data_column("Patient Count", vtkIntArray())
+    arr_nsfinj_count = create_data_column("Same Day Diagnosis Count", vtkIntArray())
+    arr_vcode_count = create_data_column("Later Day Diagnosis Count", vtkIntArray())
+
+    # Add table data columns to table
+    table.AddColumn(arr_gender)
+    table.AddColumn(arr_patient_count)
+    table.AddColumn(arr_nsfinj_count)
+    table.AddColumn(arr_vcode_count)
+
+    # Sort dict_list
+    dict_list = sorted(dict_list, key=lambda data: data["Gender"])
+    gender_to_count_map = dict_list_to_bins(dict_list, "Gender")
+    gender_to_injury_type_map = count_instances_of(dict_list, "Gender", "Type of Injury Code")
+
+    # Populate data table
+    num_points = len(gender_to_count_map)
+    table.SetNumberOfRows(num_points)
+    for i in range(num_points):
+        key_y_val = list(gender_to_count_map.keys())[i]
+        gender_id = get_gender_id(key_y_val)
+        table.SetValue(i, 0, gender_id)
+        table.SetValue(i, 1, gender_to_count_map[key_y_val])
+        table.SetValue(i, 2, gender_to_injury_type_map[key_y_val].get("NSFINJ", 0))
+        table.SetValue(i, 3, gender_to_injury_type_map[key_y_val].get("VCODE", 0))
+
+    # Add table to chart
+    add_column_to_chart(chart, table, 1, (0, 200, 0, 200), None, vtkChart.BAR)
+    add_column_to_chart(chart, table, 2, (200, 0, 0, 200), None, vtkChart.BAR)
+    add_column_to_chart(chart, table, 3, (0, 0, 200, 200), None, vtkChart.BAR)
+
+    # Labels the x-axis ticks
+    labels = vtkStringArray()
+    labels.SetNumberOfValues(3)
+    labels.SetValue(0, "FEMALE")
+    labels.SetValue(1, "MALE")
+    labels.SetValue(2, "No valid match found.  Defaulted")
+
+    # Populate the x-axis gender values
+    genders = vtkDoubleArray()
+    genders.SetNumberOfValues(3)
+    genders.SetValue(0, 0)
+    genders.SetValue(1, 1)
+    genders.SetValue(2, 2)
+
+    # Set chart axes properties
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetCustomTickPositions(genders, labels)
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetBehavior(1)
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetMinimum(-1)
+    chart.GetAxis(vtk.vtkAxis.BOTTOM).SetMaximum(3)
+
+    view.GetRenderWindow().SetMultiSamples(0)
+
+
+def scatter_plot(view, dict_list: list, key_y: str):
+    """
+    Generates a scatter plot from a list of dictionaries,
+    a view, and a data key.
+
+    :param view: a VTK view
+    :param dict_list: a list of dictionaries
+    :param key_y: a data key
+    :return: None
+    """
     chart = vtk.vtkChartXY()
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
@@ -93,10 +250,10 @@ def scatter_plot(view, dict_list, key_y):
 
     # Create data columns
     table = vtk.vtkTable()
-    arr_age = create_data_column("Age")
-    arr_patient_count = create_data_column("Patient Count")
-    arr_stress_count = create_data_column("Stress Count")
-    arr_anxiety_count = create_data_column("Anxiety Count")
+    arr_age = create_data_column("Age", vtkFloatArray())
+    arr_patient_count = create_data_column("Patient Count", vtkFloatArray())
+    arr_stress_count = create_data_column("Stress Count", vtkFloatArray())
+    arr_anxiety_count = create_data_column("Anxiety Count", vtkFloatArray())
 
     # Add columns to table
     table.AddColumn(arr_age)
@@ -135,10 +292,11 @@ def main():
     view.GetRenderer().SetBackground(1.0, 1.0, 1.0)
     view.GetRenderWindow().SetSize(800, 800)
 
-    scatter_plot(view, dict_list, "Age")
+    # scatter_plot(view, dict_list, "Age")
+    bar_chart(view, dict_list)
 
     # Screen shot
-    # screen_shot(view.GetRenderWindow(), "count-by-age-with-stress-and-anxiety-plot")
+    screen_shot(view.GetRenderWindow(), "count-by-gender-bar-graph-formatted")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
