@@ -59,7 +59,7 @@ The following visualization is a bar graph of patient counts vs. gender:
 ![Counts vs. Gender][3]
 
 After looking at some trend data, I thought it would be cool to check out
-some ratio data. In particular, I was interesting in looking at some
+some ratio data. In particular, I was interested in looking at some
 of the disparity between men and women in the healthcare data.
 
 Since I had already looked at incident data, I decided to analyze the
