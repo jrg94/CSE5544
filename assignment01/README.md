@@ -129,7 +129,21 @@ we could better see the ratio between the various incidents.
 
 Of the four visualizations above, my favorite visualization is:
 
-![Favorite Viz]()
+![Favorite Viz][3]
+
+I like this visualization because of how elegant it is. To the typical observer,
+it's just a bar graph. But to me, it's a clean and simple way of displaying
+several relationships between gendered data.
+
+Just take a look at it. Within a few moments, you can make some pretty big
+conclusions about the data:
+
+1. All women went to the doctor the day they had their symptoms
+2. Roughly half of men went to the doctor on the first day of their symptoms
+3. There were over twice as many men at the doctor as women
+
+Sure, we could have found all this information out by looking at some basic
+statistics, but this visualization gives us all that information for free.
 
 ## Features
 
