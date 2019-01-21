@@ -163,7 +163,7 @@ doesn't appear to support that feature. So, I chose to leave the visualization
 for the sake of the discussion.
 
 Again, there doesn't appear to be a way to scale the legend. Feel free to let
-me know otherwise. 
+me know otherwise.
 
 ## Favorite Image
 
@@ -196,8 +196,6 @@ VTK, or the Visualization Toolkit, is a visualization platform that has API
 support in a handful of popular languages like Python, Java, and C++. In the
 following sections, I'll cover the two best features and the worst feature.
 
-#### Best Two Features
-
 **One of my favorite features of VTK is the automation**. In particular, I love
 that I can provide data to the library, and it automatically renders it with
 a legend, axes, labels, and points. All I have to control is the data, the type
@@ -207,8 +205,6 @@ Also, **I love how VTK graphs are interactive**. While I've shared only screensh
 you can load up a graph and move it around. In addition, you can hover over bars
 or points and get their value displayed. It's really handy if the data is dense, or
 you just want to check an exact value.
-
-#### Worst Feature
 
 By far, the **worst** feature of VTK is installation. As a PC user, I had to go
 through an incredibly lengthy installation process just to start rendering
@@ -249,8 +245,6 @@ wasn't ideal. There needs to be more plotting documentation in Python.
 Paraview is a GUI extension to the Visualization Toolkit which allows you to
 plot and manipulate data without the use of code.
 
-#### Best Two Features
-
 After using VTK, **Paraview pays off in its convenience**. In particular, I like
 how easy it is to load csv data. In python, I was forced to manage all that data
 by hand. In Paraview, it's as easy as opening a file.
@@ -262,8 +256,6 @@ well as axes and legend labels.
 On top of that, **Paraview is excellent for drawing multiple plots and panes**. In
 python, it can be difficult to stitch together view. In Paraview, not so much.
 It's very easy and practical to look at a line graph and a histogram side-by-side.
-
-#### Worst Feature
 
 By far, **Paraview lacks intuitiveness**. In an effort to replicate my first
 set of graphs from VTK, I could not figure out how to do any basic data analysis.
@@ -280,7 +272,7 @@ this is a similar complaint that I have with VTK, so the problem stems from
 there.
 
 [1]: docs/assignment01.pdf
-[2]: assets/vtk/count-by-age-with-stress-and-anxiety-line-plot.png
-[3]: assets/vtk/count-by-gender-3-column-bar-graph-clean.png
+[2]: assets/vtk/count-by-age-final.png
+[3]: assets/vtk/count-by-gender-final.png
 [4]: assets/paraview/incident-histogram-labeled.png
 [5]: assets/paraview/frequency-vs-age-graph.png

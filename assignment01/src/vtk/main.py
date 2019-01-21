@@ -61,7 +61,7 @@ def dict_list_to_bins(dict_list: list, bin_key: str, comparison_key=None) -> dic
     return dict_bins
 
 
-def label_axes(chart, x_label: str, y_label: str):
+def label_axes(chart, x_label: str, y_label: str, title: str):
     """
     Labels the chart axes
 
@@ -70,6 +70,7 @@ def label_axes(chart, x_label: str, y_label: str):
     :param y_label: the y-axis label
     :return: None
     """
+    chart.SetTitle(title)
     chart.GetAxis(vtk.vtkAxis.BOTTOM).SetTitle(x_label)
     chart.GetAxis(vtk.vtkAxis.LEFT).SetTitle(y_label)
 
@@ -174,7 +175,7 @@ def bar_chart(view, dict_list: list):
     chart = vtkChartXY()
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
-    label_axes(chart, "Gender", "Count")
+    label_axes(chart, "Gender", "Count", "Gender Incident Histogram")
     table = vtk.vtkTable()
 
     # Create table data columns
@@ -246,7 +247,7 @@ def scatter_plot(view, dict_list: list, key_y: str):
     chart = vtk.vtkChartXY()
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
-    label_axes(chart, "Age", "Count")
+    label_axes(chart, "Age", "Count", "Count vs. Age Scatter Plot")
 
     # Create data columns
     table = vtk.vtkTable()
@@ -292,11 +293,11 @@ def main():
     view.GetRenderer().SetBackground(1.0, 1.0, 1.0)
     view.GetRenderWindow().SetSize(800, 800)
 
-    # scatter_plot(view, dict_list, "Age")
-    bar_chart(view, dict_list)
+    scatter_plot(view, dict_list, "Age")
+    # bar_chart(view, dict_list)
 
     # Screen shot
-    screen_shot(view.GetRenderWindow(), "count-by-gender-bar-graph-formatted")
+    screen_shot(view.GetRenderWindow(), "count-by-age-final")
 
     view.GetInteractor().Initialize()
     view.GetInteractor().Start()
