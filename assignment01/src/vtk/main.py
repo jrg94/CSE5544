@@ -106,6 +106,23 @@ def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: t
         points.SetMarkerStyle(mark)
 
 
+def count_instances_of(dict_list, key_x, key_y):
+    count = {}
+    for item in dict_list:
+        x = item.get(key_x)
+        y = item.get(key_y)
+
+        if not count.get(x, None):
+            count[x] = {}
+
+        if count.get(x).get(y, None):
+            count[x][y] += 1
+        else:
+            count[x][y] = 1
+
+    return count
+
+
 def get_gender_id(gender: str) -> int:
     """
     A helper method for generating gender IDs.
@@ -127,17 +144,22 @@ def bar_chart(view, dict_list: list):
     view.GetScene().AddItem(chart)
     chart.SetShowLegend(True)
     label_axes(chart, "Gender", "Count")
-
     table = vtk.vtkTable()
-    arr_age = create_data_column("Gender", vtkIntArray())
-    arr_patient_count = create_data_column("Count", vtkIntArray())
 
-    table.AddColumn(arr_age)
+    # Create table data columns
+    arr_gender = create_data_column("Gender", vtkIntArray())
+    arr_patient_count = create_data_column("Count", vtkIntArray())
+    arr_nsfinj_count = create_data_column("Injury Count", vtkIntArray())
+
+    # Add table data columns to table
+    table.AddColumn(arr_gender)
     table.AddColumn(arr_patient_count)
+    table.AddColumn(arr_nsfinj_count)
 
     # Sort dict_list
     dict_list = sorted(dict_list, key=lambda data: data["Gender"])
     gender_to_count_map = dict_list_to_bins(dict_list, "Gender")
+    gender_to_injury_type_map = count_instances_of(dict_list, "Gender", "Type of Injury Code")
 
     # Populate data table
     num_points = len(gender_to_count_map)
@@ -147,9 +169,11 @@ def bar_chart(view, dict_list: list):
         gender_id = get_gender_id(key_y_val)
         table.SetValue(i, 0, gender_id)
         table.SetValue(i, 1, gender_to_count_map[key_y_val])
+        table.SetValue(i, 2, gender_to_injury_type_map[key_y_val]["NSFINJ"])
 
     # Add table to chart
     add_column_to_chart(chart, table, 1, (0, 200, 0, 200), None, vtkChart.BAR)
+    add_column_to_chart(chart, table, 2, (200, 0, 0, 200), None, vtkChart.BAR)
 
     # Labels the x-axis ticks
     labels = vtkStringArray()
