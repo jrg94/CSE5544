@@ -211,6 +211,18 @@ It's very easy and practical to look at a line graph and a histogram side-by-sid
 
 #### Worst Feature
 
+By far, **Paraview lacks intuitiveness**. In an effort to replicate my first
+set of graphs from VTK, I could not figure out how to do any basic data analysis.
+After nesting a few plots, I figured out how to combine a histogram with a line
+plot, but it still didn't give me enough flexibility to replicate my first graph.
+In many cases, I managed to crash the program as I attempted to run different
+tools on my data in hopes of getting the results I wanted.
+
+After a few hours of toying around, I ultimately abandoned my attempt to replicate
+the original graphs before moving on. From there, I could only figure out how
+to generate a histogram and a line graph **without** and sort of categorical
+data. I still have no idea how to use categorical data in Paraview.
+
 [1]: docs/assignment01.pdf
 [2]: assets/vtk/count-by-age-with-stress-and-anxiety-line-plot.png
 [3]: assets/vtk/count-by-gender-3-column-bar-graph-clean.png
