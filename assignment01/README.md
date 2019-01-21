@@ -125,6 +125,10 @@ with the time allotted for the assignment. If there were more time, I would
 probably try to graph just the positive incidents (the values of 1). That way,
 we could better see the ratio between the various incidents.
 
+Finally, I'd like to note that there doesn't appear to be a way to address the
+legend size. As far as I can tell, there's no setting for it. That said, I
+didn't look very hard.
+
 ## Favorite Image
 
 Of the four visualizations above, my favorite visualization is:
