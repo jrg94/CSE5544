@@ -221,7 +221,9 @@ tools on my data in hopes of getting the results I wanted.
 After a few hours of toying around, I ultimately abandoned my attempt to replicate
 the original graphs before moving on. From there, I could only figure out how
 to generate a histogram and a line graph **without** and sort of categorical
-data. I still have no idea how to use categorical data in Paraview.
+data. I still have no idea how to use categorical data in Paraview. To be fair,
+this is a similar complaint that I have with VTK, so the problem stems from
+there.
 
 [1]: docs/assignment01.pdf
 [2]: assets/vtk/count-by-age-with-stress-and-anxiety-line-plot.png
