@@ -192,7 +192,22 @@ wasn't ideal. There needs to be more plotting documentation in Python.
 
 ### Paraview
 
+Paraview is a GUI extension to the Visualization Toolkit which allows you to
+plot and manipulate data without the use of code.
+
 #### Best Two Features
+
+After using VTK, **Paraview pays off in its convenience**. In particular, I like
+how easy it is to load csv data. In python, I was forced to manage all that data
+by hand. In Paraview, it's as easy as opening a file.
+
+In addition, once you have a graph decided, the settings are easy to manipulate.
+For example, it's very easy to choose between the various colors for data as
+well as axes and legend labels.
+
+On top of that, **Paraview is excellent for drawing multiple plots and panes**. In
+python, it can be difficult to stitch together view. In Paraview, not so much.
+It's very easy and practical to look at a line graph and a histogram side-by-side.
 
 #### Worst Feature
 
