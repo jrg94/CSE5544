@@ -129,6 +129,12 @@ Finally, I'd like to note that there doesn't appear to be a way to address the
 legend size. As far as I can tell, there's no setting for it. That said, I
 didn't look very hard.
 
+#### Frequency vs. Age Graph
+
+For my final visualization, I decided to take a look at age again:
+
+![Frequency vs. Age][5]
+
 ## Favorite Image
 
 Of the four visualizations above, my favorite visualization is:
@@ -247,3 +253,4 @@ there.
 [2]: assets/vtk/count-by-age-with-stress-and-anxiety-line-plot.png
 [3]: assets/vtk/count-by-gender-3-column-bar-graph-clean.png
 [4]: assets/paraview/incident-histogram-labeled.png
+[5]: assets/paraview/frequency-vs-age-graph.png
