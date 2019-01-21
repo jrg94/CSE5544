@@ -121,19 +121,19 @@ def bar_chart(view, dict_list: list):
 
     # Sort dict_list
     dict_list = sorted(dict_list, key=lambda data: data["Gender"])
-    age_to_count_map = dict_list_to_bins(dict_list, "Gender")
+    gender_to_count_map = dict_list_to_bins(dict_list, "Gender")
 
-    num_points = len(dict_list)
+    num_points = len(gender_to_count_map)
     table.SetNumberOfRows(num_points)
     for i in range(num_points):
-        key_y_val = dict_list[i]["Gender"]
+        key_y_val = list(gender_to_count_map.keys())[i]
         gender = 2
         if key_y_val == "MALE":
             gender = 1
         elif key_y_val == "FEMALE":
             gender = 0
         table.SetValue(i, 0, gender)
-        table.SetValue(i, 1, age_to_count_map[key_y_val])
+        table.SetValue(i, 1, gender_to_count_map[key_y_val])
 
     add_column_to_chart(chart, table, 1, (0, 200, 0, 200), None, vtkChart.BAR)
 
@@ -143,18 +143,19 @@ def bar_chart(view, dict_list: list):
     labels.SetValue(0, "FEMALE")
     labels.SetValue(1, "MALE")
     labels.SetValue(2, "No valid match found.  Defaulted")
+
+    # Populate the x-axis gender values
     genders = vtkDoubleArray()
     genders.SetNumberOfValues(3)
     genders.SetValue(0, 0)
     genders.SetValue(1, 1)
     genders.SetValue(2, 2)
+
+    # Set chart axes properties
     chart.GetAxis(vtk.vtkAxis.BOTTOM).SetCustomTickPositions(genders, labels)
     chart.GetAxis(vtk.vtkAxis.BOTTOM).SetBehavior(1)
     chart.GetAxis(vtk.vtkAxis.BOTTOM).SetMinimum(-1)
     chart.GetAxis(vtk.vtkAxis.BOTTOM).SetMaximum(3)
-    #hart.GetAxis(vtk.vtkAxis.BOTTOM).GetLabelProperties().SetOrientation(90)
-    #chart.GetAxis(vtk.vtkAxis.BOTTOM).GetLabelProperties().SetVerticalJustification(VTK_TEXT_CENTERED)
-    #chart.GetAxis(vtk.vtkAxis.BOTTOM).GetLabelProperties().SetJustification(VTK_TEXT_RIGHT)
 
     view.GetRenderWindow().SetMultiSamples(0)
 
