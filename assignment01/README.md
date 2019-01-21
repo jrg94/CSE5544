@@ -18,15 +18,15 @@ As far as VTK is concerned, I used the Python library to generate my screenshots
 
 #### Counts vs. Age Scatter Plot
 
-The following visualization is a plot of incident counts versus age. 
+The following visualization is a plot of incident counts versus age.
 
 ![Counts vs. Age][2]
 
 When I was first looking at the healthcare data, I struggled a lot with finding ways
-to visualize it. After all, a large portion of the data is categorical (Demographics, 
-Injury Info, Encounter Info, etc.), so it was tough to work with in VTK. 
+to visualize it. After all, a large portion of the data is categorical (Demographics,
+Injury Info, Encounter Info, etc.), so it was tough to work with in VTK.
 
-After fiddling with the scatter plot in VTK for awhile (as seen in the assets folder), 
+After fiddling with the scatter plot in VTK for awhile (as seen in the assets folder),
 I thought it might be cool to look at patient ages and corresponding incidents.
 For instance, I asked myself the following questions:
 
@@ -60,11 +60,11 @@ The following visualization is a bar graph of patient counts vs. gender:
 
 After looking at some trend data, I thought it would be cool to check out
 some ratio data. In particular, I was interesting in looking at some
-of the disparity between men and women in the healthcare data. 
+of the disparity between men and women in the healthcare data.
 
 Since I had already looked at incident data, I decided to analyze the
 injury code data which determines when patients came in for a diagnosis.
-Either they came in the same day of the injury (NSFINJ) or some time later (VCODE). 
+Either they came in the same day of the injury (NSFINJ) or some time later (VCODE).
 
 To generate this graph, I had to do quite a bit of data analysis which included
 filtering the data set by multiple columns (i.e. MALE & NSFINJ, MALE & VCODE, etc.).
@@ -78,10 +78,52 @@ over half of the time the same day. Otherwise, they went sometime later.
 
 In addition, it's clear in this case that men were overwhelmingly more likely to
 go to the doctor than women. Whether that means men get hurt and sick more
-often is left up to further analysis. 
+often is left up to further analysis.
 
 I find this style of graph--although simple--very eloquent as it clearly shows
 ratio information between men and women, men and men, and women and women.
+
+### Paraview
+
+After using VTK, I felt it was only natural that I try to use the GUI extension,
+Paraview.
+
+#### Frequency vs. Incidents Histogram
+
+Up first, here's a histogram of the EHR incidents and their frequency:
+
+![EHR Incidents Histogram][4]
+
+As I begin to play around with Paraview, I found out very quickly that it's a
+bit rigid. In other words, I found it very difficult to replicate my original
+graphs, so I decided to make new ones.
+
+To start, I figured it would be interesting to looks at some the incidents
+like Endocrine, Stress, Vision, and Sleep to see just how many patients
+came in for mTBI related issues.
+
+To do this, I had to load the csv data into the tool and apply 4 separate
+histogram filters to generate this graph. From there, I customized
+the various colors, added labels, and changed the legend.
+
+As you can see, there were very few patients that actually exhibited these
+four distinct incidents. Unfortunately, this visualization doesn't capture
+the overlap, so there very well could be even fewer cases of mTBI.
+
+That said, we're able to clearly see which incidents accounted for the mTBI
+cases. For instance, sleep seemed to be a relatively common indicator of mTBI
+whereas stress didn't occur once. Perhaps people don't see the need to go
+to a doctor if they're stressed.
+
+At any rate, one of the things I don't really like about this image is the x-axis.
+Along the bottom, you'll notice that the scale is quantitative, but incidents
+either happen or they don't (0 or 1). As a result, the graphics seems to indicate
+that some individuals had partial symptoms which doesn't make a lot of sense.
+
+That said, I struggled to find a better way to represent this data in paraview
+with the time allotted for the assignment. If there were more time, I would
+probably try to graph just the positive incidents (the values of 1). That way,
+we could better see the ratio between the various incidents.
 
 ## Favorite Image
 
@@ -107,7 +149,7 @@ that I can provide data to the library, and it automatically renders it with
 a legend, axes, labels, and points. All I have to control is the data, the type
 of chart, and the colors. Everything else is automated.
 
-Also, **I love how VTK graphs are interactive**. While I've shared only screenshots, 
+Also, **I love how VTK graphs are interactive**. While I've shared only screenshots,
 you can load up a graph and move it around. In addition, you can hover over bars
 or points and get their value displayed. It's really handy if the data is dense, or
 you just want to check an exact value.
@@ -151,5 +193,6 @@ wasn't ideal. There needs to be more plotting documentation in Python.
 ### D3
 
 [1]: docs/assignment01.pdf
-[2]: assets/count-by-age-with-stress-and-anxiety-line-plot.png
-[3]: assets/count-by-gender-3-column-bar-graph-clean.png
+[2]: assets/vtk/count-by-age-with-stress-and-anxiety-line-plot.png
+[3]: assets/vtk/count-by-gender-3-column-bar-graph-clean.png
+[4]: assets/paraview/incident-histogram-labeled.png
