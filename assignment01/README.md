@@ -18,7 +18,7 @@ As far as VTK is concerned, I used the Python library to generate my screenshots
 
 #### Counts vs. Age Scatter Plot
 
-The following visualizations is a plot of incident counts versus age. 
+The following visualization is a plot of incident counts versus age. 
 
 ![Counts vs. Age][2]
 
@@ -52,7 +52,15 @@ Unfortunately, what I found was not all that interesting. As the number of patie
 per age bracket went up, so do the incidents. In fact, they appear to be almost
 directly proportional. No age had any frightening upticks in incidents.
 
-#### 
+#### Counts vs. Gender Bar Graph
+
+The following visualization is a bar graph of patient counts vs. gender:
+
+![Counts vs. Gender][3]
+
+After looking at some trend data, I thought it would be cool to check out
+some ratio data. In particular, I was interesting in looking at some
+of the disparity between men and women in the healthcare data. 
 
 ## Favorite Image
 
@@ -113,3 +121,4 @@ wasn't ideal. There needs to be more plotting documentation in Python.
 
 [1]: docs/assignment01.pdf
 [2]: assets/count-by-age-with-stress-and-anxiety-line-plot.png
+[3]: assets/count-by-gender-3-column-bar-graph-clean.png
