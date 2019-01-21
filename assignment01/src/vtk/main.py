@@ -179,9 +179,9 @@ def bar_chart(view, dict_list: list):
 
     # Create table data columns
     arr_gender = create_data_column("Gender", vtkIntArray())
-    arr_patient_count = create_data_column("Count", vtkIntArray())
-    arr_nsfinj_count = create_data_column("NSFINJ Count", vtkIntArray())
-    arr_vcode_count = create_data_column("VCODE Count", vtkIntArray())
+    arr_patient_count = create_data_column("Patient Count", vtkIntArray())
+    arr_nsfinj_count = create_data_column("Same Day Diagnosis Count", vtkIntArray())
+    arr_vcode_count = create_data_column("Later Day Diagnosis Count", vtkIntArray())
 
     # Add table data columns to table
     table.AddColumn(arr_gender)
