@@ -62,6 +62,27 @@ After looking at some trend data, I thought it would be cool to check out
 some ratio data. In particular, I was interesting in looking at some
 of the disparity between men and women in the healthcare data. 
 
+Since I had already looked at incident data, I decided to analyze the
+injury code data which determines when patients came in for a diagnosis.
+Either they came in the same day of the injury (NSFINJ) or some time later (VCODE). 
+
+To generate this graph, I had to do quite a bit of data analysis which included
+filtering the data set by multiple columns (i.e. MALE & NSFINJ, MALE & VCODE, etc.).
+After completing all the calculations, I had to redesign the x-axis labels
+and provide a numerical for the data. Apparently, VTK can't handle string data
+along the axes automatically.
+
+As it turns out, women came in the same day at a 100% rate which is
+nearly unbelievable. Whereas, men turned up to the doctor just a bit
+over half of the time the same day. Otherwise, they went sometime later.
+
+In addition, it's clear in this case that men were overwhelmingly more likely to
+go to the doctor than women. Whether that means men get hurt and sick more
+often is left up to further analysis. 
+
+I find this style of graph--although simple--very eloquent as it clearly shows
+ratio information between men and women, men and men, and women and women.
+
 ## Favorite Image
 
 Of the four visualizations above, my favorite visualization is:
