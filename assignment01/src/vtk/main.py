@@ -106,6 +106,22 @@ def add_column_to_chart(chart: vtkChartXY, table: vtkTable, index: int, color: t
         points.SetMarkerStyle(mark)
 
 
+def get_gender_id(gender: str) -> int:
+    """
+    A helper method for generating gender IDs.
+
+    :param gender: a gender string
+    :return: a gender id
+    """
+    if gender == "FEMALE":
+        gender_id = 0
+    elif gender == "MALE":
+        gender_id = 1
+    else:
+        gender_id = 2
+    return gender_id
+
+
 def bar_chart(view, dict_list: list):
     chart = vtkChartXY()
     view.GetScene().AddItem(chart)
@@ -123,18 +139,16 @@ def bar_chart(view, dict_list: list):
     dict_list = sorted(dict_list, key=lambda data: data["Gender"])
     gender_to_count_map = dict_list_to_bins(dict_list, "Gender")
 
+    # Populate data table
     num_points = len(gender_to_count_map)
     table.SetNumberOfRows(num_points)
     for i in range(num_points):
         key_y_val = list(gender_to_count_map.keys())[i]
-        gender = 2
-        if key_y_val == "MALE":
-            gender = 1
-        elif key_y_val == "FEMALE":
-            gender = 0
-        table.SetValue(i, 0, gender)
+        gender_id = get_gender_id(key_y_val)
+        table.SetValue(i, 0, gender_id)
         table.SetValue(i, 1, gender_to_count_map[key_y_val])
 
+    # Add table to chart
     add_column_to_chart(chart, table, 1, (0, 200, 0, 200), None, vtkChart.BAR)
 
     # Labels the x-axis ticks
