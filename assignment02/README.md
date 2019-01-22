@@ -15,6 +15,7 @@ list of papers have been aggregated for my personal use:
 - [An approach to leveraging multitrack information for artistic music visualization][3]
 - [VISUALIZING MUSIC IN ITS ENTIRETY USING ACOUSTIC FEATURES: MUSIC FLOWGRAM][4]
 - [SIMPLE: ASSESSING MUSIC SIMILARITY USING SUBSEQUENCES JOINS][5]
+- [IMPROVING VISUALIZATION OF HIGH-DIMENSIONAL MUSIC SIMILARITY SPACES][6]
 
 ## The Effective Visualization
 
@@ -25,3 +26,4 @@ list of papers have been aggregated for my personal use:
 [3]: https://qmro.qmul.ac.uk/xmlui/handle/123456789/15516
 [4]: http://tenor-conference.org/proceedings/2016/04_Jeong_tenor2016.pdf
 [5]: https://wp.nyu.edu/ismir2016/wp-content/uploads/sites/2294/2016/07/099_Paper.pdf
+[6]: https://pdfs.semanticscholar.org/6861/648ea009eec227b2d53c0da03ad8e3e9c183.pdf
