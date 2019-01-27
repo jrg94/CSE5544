@@ -46,6 +46,10 @@ in the paper:
 
 ![Music Flowgram][7]
 
+In order to review this visualization, I think it's important to discuss the goal of
+the research which was to create a music visualization that is less dense than sheet
+music for listeners.
+
 ## The Ineffective Visualization
 
 As for the ineffective visualization, I didn't have to look far:
