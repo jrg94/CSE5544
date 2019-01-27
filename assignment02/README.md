@@ -5,6 +5,18 @@ and one ineffective. These visualizations must come from a written publication,
 so we can follow their design process. Examples papers can be found on the
 course [paper list][1].
 
+Each visualization must be evaluated based on the following criteria:
+
+- How effective do you judge this visualization to be? Why?
+- What are the most noticeable elements of the visualization? Are they the most important?
+- Is there essential information missing?
+- Are there elements which carry no information?
+- Are colors used effectively?
+- Does this visualization encourage any misperceptions?
+- How could this visualization be improved? Offer specific suggestions.
+
+In total, each review should be between a half and a full page of prose.
+
 ## Background
 
 As a bit of background, I chose to read up on some of the music research as
@@ -16,6 +28,9 @@ list of papers have been aggregated for my personal use:
 - [VISUALIZING MUSIC IN ITS ENTIRETY USING ACOUSTIC FEATURES: MUSIC FLOWGRAM][4]
 - [SIMPLE: ASSESSING MUSIC SIMILARITY USING SUBSEQUENCES JOINS][5]
 - [IMPROVING VISUALIZATION OF HIGH-DIMENSIONAL MUSIC SIMILARITY SPACES][6]
+
+For this particular assignment, I chose to evaluate visualizations from the first
+and third papers.
 
 ## The Effective Visualization
 
