@@ -60,6 +60,12 @@ to score is an expensive process, and automated processes are still being resear
 As a result, the researchers chose to circumvent music notation by introducing a
 new music visualization called the music flowgram which can be seen above.
 
+To be clear, a music flowgram is not a new idea. Instead, it's a concept borrowed
+from Freytag who visualized tension progress in storytelling. In this case, the idea 
+is to demonstrate a change in music over time using a continuous two-dimensional graph.
+From this graph, listeners should be able to grasp the emotional aspects of music which
+are derived from loudness, tempo, and harmony.
+
 ## The Ineffective Visualization
 
 As for the ineffective visualization, I didn't have to look far:
