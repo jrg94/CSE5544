@@ -66,6 +66,15 @@ is to demonstrate a change in music over time using a continuous two-dimensional
 From this graph, listeners should be able to grasp the emotional aspects of music which
 are derived from loudness, tempo, and harmony.
 
+At first glance, the music flowgram above appears to do exactly what the researchers intended.
+Without really knowing what the graph shows technically, we can see a bit of storytelling
+or trends in the graph. In this particular example, we can see the growth and decay of
+various portions of the song which likely imitate the ebb and flow of musical storytelling.
+
+Upon further investigation though, we'll discovere that volume is mapped to the y-axis while
+onset density--which is related to tempo--is mapped to the graph color (red) and auditory
+roughness is mapped to the background color (blue).
+
 ## The Ineffective Visualization
 
 As for the ineffective visualization, I didn't have to look far:
