@@ -51,7 +51,14 @@ the research which was to create a music visualization that is less dense than s
 music for listeners. In other words, the researchers were interested in finding a way
 to simplify the music following task as score following is traditionally very difficult.
 In addition, the researchers noted that traditional music notation does not capture
-the global structure of a piece. 
+the global structure of a piece. Instead, it focuses on transient elements through
+measures.
+
+According to the researchers, there has been plenty of research to try to address 
+the shortcomings in the music following task. However, manual mapping of music
+to score is an expensive process, and automated processes are still being researched.
+As a result, the researchers chose to circumvent music notation by introducing a
+new music visualization called the music flowgram which can be seen above.
 
 ## The Ineffective Visualization
 
