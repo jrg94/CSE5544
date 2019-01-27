@@ -46,6 +46,10 @@ in the paper:
 
 ![Music Flowgram][7]
 
+With all that said, let's take some time to review the literature.
+
+### Music Flowgram Background
+
 In order to review this visualization, I think it's important to discuss the goal of
 the research which was to create a music visualization that is less dense than sheet
 music for listeners. In other words, the researchers were interested in finding a way
@@ -66,14 +70,18 @@ is to demonstrate a change in music over time using a continuous two-dimensional
 From this graph, listeners should be able to grasp the emotional aspects of music which
 are derived from loudness, tempo, and harmony.
 
+### Music Flowgram Review
+
 At first glance, the music flowgram above appears to do exactly what the researchers intended.
 Without really knowing what the graph shows technically, we can see a bit of storytelling
 or trends in the graph. In this particular example, we can see the growth and decay of
 various portions of the song which likely imitate the ebb and flow of musical storytelling.
 
-Upon further investigation though, we'll discovere that volume is mapped to the y-axis while
-onset density--which is related to tempo--is mapped to the graph color (red) and auditory
-roughness is mapped to the background color (blue).
+Upon further investigation, we'll discover that volume is mapped to the y-axis. 
+Meanwhile, onset density--which is related to tempo--is mapped to the graph color (red), 
+and auditory roughness is mapped to the background color (blue).
+
+That said, just how effective is this visualization?
 
 ## The Ineffective Visualization
 
