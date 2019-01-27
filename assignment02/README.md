@@ -25,9 +25,9 @@ list of papers have been aggregated for my personal use:
 
 - [Analyzing Visual Mappings of Traditional and Alternative Music Notation][2]
 - [An approach to leveraging multitrack information for artistic music visualization][3]
-- [VISUALIZING MUSIC IN ITS ENTIRETY USING ACOUSTIC FEATURES: MUSIC FLOWGRAM][4]
-- [SIMPLE: ASSESSING MUSIC SIMILARITY USING SUBSEQUENCES JOINS][5]
-- [IMPROVING VISUALIZATION OF HIGH-DIMENSIONAL MUSIC SIMILARITY SPACES][6]
+- [Visualizing Musin in its Entirety Using Acoustic Features: Music Flowgram][4]
+- [Simple: Assessing Music Similarity Using Subsequences Joins][5]
+- [Improving Visualization of High-Dimensional Music Similarity Spaces][6]
 
 For this particular assignment, I chose to evaluate visualizations from the first
 and third papers.
