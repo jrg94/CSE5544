@@ -48,7 +48,10 @@ in the paper:
 
 In order to review this visualization, I think it's important to discuss the goal of
 the research which was to create a music visualization that is less dense than sheet
-music for listeners.
+music for listeners. In other words, the researchers were interested in finding a way
+to simplify the music following task as score following is traditionally very difficult.
+In addition, the researchers noted that traditional music notation does not capture
+the global structure of a piece. 
 
 ## The Ineffective Visualization
 
