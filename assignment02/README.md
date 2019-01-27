@@ -34,6 +34,15 @@ and third papers.
 
 ## The Effective Visualization
 
+After reviewing a few papers, I decided that the most effective visualization was from
+the following paper:
+
+**Miller, Matthias, et al. "Analyzing Visual Mappings of Traditional and Alternative 
+Music Notation." arXiv preprint arXiv:1810.10814 (2018).**
+
+In particular, I took interest in the application of the music flowgram detailed
+in the paper:
+
 ![Music Flowgram][7]
 
 ## The Ineffective Visualization
