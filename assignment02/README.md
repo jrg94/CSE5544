@@ -81,7 +81,23 @@ Upon further investigation, we'll discover that volume is mapped to the y-axis.
 Meanwhile, onset density--which is related to tempo--is mapped to the graph color (red), 
 and auditory roughness is mapped to the background color (blue).
 
-That said, just how effective is this visualization?
+That said, just how effective is this visualization? Personally, I think its excellent.
+As a musician, I find reading music to be challenging especially when you don't have an
+understanding of the global structure of the piece. For instance, I may ask myself questions
+like:
+
+- Where is this piece going?
+- Am I conveying the right emotion? style?
+- What was the composer thinking?
+- What is my role in this piece?
+
+To address these questions, a lot of band directors will try to emphasis the style
+or flow of a piece through their gestures. Unfortunately, this is often a slow
+iterative process as musicians slower find their role in the ensemble.
+
+To me, this visualization does an excellent job of *at least* addressing questions of
+flow and emotion. In addition, it does great job of allowing listeners to follow along.
+And, I'm sure it helps a lot for recall and memorization.
 
 ## The Ineffective Visualization
 
