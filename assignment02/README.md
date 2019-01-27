@@ -99,6 +99,17 @@ To me, this visualization does an excellent job of *at least* addressing questio
 flow and emotion. In addition, it does great job of allowing listeners to follow along.
 And, I'm sure it helps a lot for recall and memorization.
 
+Of course, there is the question of whether or not this graph needs data labels, and
+I'd have to say no. Here, the flowgram tries to illustrate storytelling, and adding
+data labels like loudness, auditory roughness, and onset density may detract from
+that goal. That said, more educated viewers may prefer the data labels.
+
+In addition, it's important to discuss how effectively the colors are used. First,
+I'll say the choice of blue and red was excellent. One problem that often comes
+up is the use of green and red which isn't great for color blind folks. That said, 
+even after reading the paper, I have trouble telling which red corresponds
+to high onset density. I'm sure listening along would clear this issue up instantly.
+
 ## The Ineffective Visualization
 
 As for the ineffective visualization, I didn't have to look far:
