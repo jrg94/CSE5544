@@ -17,7 +17,7 @@ Each visualization must be evaluated based on the following criteria:
 
 In total, each review should be between a half and a full page of prose.
 
-## Background
+## Research Discovery
 
 As a bit of background, I chose to read up on some of the music research as
 it's related to my final project and personal research interests. The following
