@@ -149,10 +149,13 @@ the data cells correspond to, and the labels require a bit of background to unde
 As someone with a music background, I would hope that the visualization would be able to
 distill what matters for the reader a little better. 
 
-That said, I think the color usage is fine. I don't see how color improves the visualizations,
+On the plus side, I think the color usage is fine. I don't see how color improves the visualization,
 but it doesn't detract from it either. I also don't think the visualization encourages any
 misperceptions. After all, all the data is there. It's just not clear what the data is telling
 us.
+
+After reading the paper, I would say the visualization makes a bit more sense, but there are 
+definitely ways to improve it.
 
 [1]: https://sites.google.com/site/datavisualizationspring2019/paperreadings/critique
 [2]: https://arxiv.org/pdf/1810.10814.pdf
