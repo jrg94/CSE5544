@@ -110,6 +110,12 @@ up is the use of green and red which isn't great for color blind folks. That sai
 even after reading the paper, I have trouble telling which red corresponds
 to high onset density. I'm sure listening along would clear this issue up instantly.
 
+Overall, I would say this is a very effective visualization. I think it does a great
+job of delivering essential information to the user without overloading them in
+details. Of course, people who want to know the technical details may find that this
+visualization is a bit lacking without labels. That said, music doesn't exactly come
+with labels, so I think this is a fair visualization for musicians. 
+
 ## The Ineffective Visualization
 
 As for the ineffective visualization, I didn't have to look far:
