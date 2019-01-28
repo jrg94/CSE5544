@@ -131,6 +131,12 @@ Before I dig into my review, I think it's important to discuss the literature:
 
 # Background
 
+According to the researchers, the motivation for this paper was to analyze musical
+notation as a means of communication. In other words, they chose to analyze several
+types of music notation to determine how we can rethink musical notation. Apparently, 
+there's very little research in this area. As a result, this research
+serves as a preliminary investigation of musical notation.
+
 # Review
 
 When I first saw this visualization, I was very overwhelmed. After all, it contains
