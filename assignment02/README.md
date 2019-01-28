@@ -133,6 +133,16 @@ Before I dig into my review, I think it's important to discuss the literature:
 
 # Review
 
+When I first saw this visualization, I was very overwhelmed. After all, it contains
+22 rows and 15 columns of data. In total, there are 330 cells of data. On top of that,
+the rows are sectioned into four groups, and the columns are sectioned into four groups.
+Based on those groupings, there appears to be about 16 classes of data.
+
+Despite the size of the table, the data is actually quite manageable because the data
+is in a sparse matrix--meaning there aren't actually 330 data cells. That said, when
+a cell contains data, the data is usually an array of numbers. In some cases, these arrays
+contain a special symbol (♫).
+
 [1]: https://sites.google.com/site/datavisualizationspring2019/paperreadings/critique
 [2]: https://arxiv.org/pdf/1810.10814.pdf
 [3]: https://qmro.qmul.ac.uk/xmlui/handle/123456789/15516
