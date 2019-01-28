@@ -143,6 +143,17 @@ is in a sparse matrix--meaning there aren't actually 330 data cells. That said, 
 a cell contains data, the data is usually an array of numbers. In some cases, these arrays
 contain a special symbol (♫).
 
+With all that said, by far my biggest complaint is the knowledge required to understand
+the visualization. Based on the description alone, I can't gather what the values in
+the data cells correspond to, and the labels require a bit of background to understand.
+As someone with a music background, I would hope that the visualization would be able to
+distill what matters for the reader a little better. 
+
+That said, I think the color usage is fine. I don't see how color improves the visualizations,
+but it doesn't detract from it either. I also don't think the visualization encourages any
+misperceptions. After all, all the data is there. It's just not clear what the data is telling
+us.
+
 [1]: https://sites.google.com/site/datavisualizationspring2019/paperreadings/critique
 [2]: https://arxiv.org/pdf/1810.10814.pdf
 [3]: https://qmro.qmul.ac.uk/xmlui/handle/123456789/15516
