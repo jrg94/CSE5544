@@ -118,7 +118,7 @@ with labels, so I think this is a fair visualization for musicians.
 
 ## The Ineffective Visualization
 
-As for the ineffective visualization, I didn't have to look far:
+As for the ineffective visualization, I didn't have too look far:
 
 **Miller, Matthias, et al. "Analyzing Visual Mappings of Traditional and Alternative 
 Music Notation." arXiv preprint arXiv:1810.10814 (2018).**
@@ -126,6 +126,12 @@ Music Notation." arXiv preprint arXiv:1810.10814 (2018).**
 In particular, I noticed a rather dense table of information in the paper:
 
 ![Overview Mapping][8]
+
+Before I dig into my review, I think it's important to discuss the literature:
+
+# Background
+
+# Review
 
 [1]: https://sites.google.com/site/datavisualizationspring2019/paperreadings/critique
 [2]: https://arxiv.org/pdf/1810.10814.pdf
