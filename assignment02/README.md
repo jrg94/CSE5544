@@ -145,7 +145,7 @@ For example, rhythm is composed of tempo, meter, and pauses.
 From there, the authors assessed each criteria on its ability to be visually
 encoded. For example, notes can be encoded on a common scale, through color
 saturation, or by texturing. Since this paper was a survey, each encoding
-is backed by proper research.
+is backed by proper research. All of this can be seen in the table above.
 
 # Review
 
@@ -175,6 +175,11 @@ definitely ways to improve it. For instance, the arrays of values should be labe
 was unclear what these numbers represented until I realized the cells were interactive. These
 values are actually citations. In other words, they represented proof that a particular
 criteria could be represented a certain way visually.
+
+In addition, I would have liked to have seen some encoding examples. While I'm familiar 
+with the common music notation in the west, I believe it would have been helpful to see a
+visualization of note texturing for example. Overall though, I think the visualization is
+useful. It's just not that effective.
 
 [1]: https://sites.google.com/site/datavisualizationspring2019/paperreadings/critique
 [2]: https://arxiv.org/pdf/1810.10814.pdf
