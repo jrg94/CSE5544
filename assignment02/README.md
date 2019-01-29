@@ -137,6 +137,16 @@ types of music notation to determine how we can rethink musical notation. Appare
 there's very little research in this area. As a result, this research
 serves as a preliminary investigation of musical notation.
 
+From my understanding, this paper looked into breaking down music notation into
+a handful of categories: rhythm, harmony, dynamics, and instructions. From these
+categories, the authors were able to specify criteria specific to the category.
+For example, rhythm is composed of tempo, meter, and pauses. 
+
+From there, the authors assessed each criteria on its ability to be visually
+encoded. For example, notes can be encoded on a common scale, through color
+saturation, or by texturing. Since this paper was a survey, each encoding
+is backed by proper research.
+
 # Review
 
 When I first saw this visualization, I was very overwhelmed. After all, it contains
@@ -161,7 +171,10 @@ misperceptions. After all, all the data is there. It's just not clear what the d
 us.
 
 After reading the paper, I would say the visualization makes a bit more sense, but there are 
-definitely ways to improve it.
+definitely ways to improve it. For instance, the arrays of values should be labeled. To me, it
+was unclear what these numbers represented until I realized the cells were interactive. These
+values are actually citations. In other words, they represented proof that a particular
+criteria could be represented a certain way visually.
 
 [1]: https://sites.google.com/site/datavisualizationspring2019/paperreadings/critique
 [2]: https://arxiv.org/pdf/1810.10814.pdf
