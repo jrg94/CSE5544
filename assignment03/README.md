@@ -9,4 +9,10 @@ Data of interest:
 
 Tasks:
 
-- Count incident totals per patient over time
+- Count flag total per patient over time
+  - Line plot (flag count over time)
+- Count lifetime flags per patient against total incidents (# of occurrences of PatientID)
+  - Scatterplot (lifetime flag totals vs. incident count)
+- Interactive
+  - Both plots show an overview of everything
+  - Allow for patient selection which fades out both graphs
