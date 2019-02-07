@@ -16,3 +16,9 @@ Tasks:
 - Interactive
   - Both plots show an overview of everything
   - Allow for patient selection which fades out both graphs
+
+Inspiration:
+
+![Controlling the Blue Line][1]
+
+[1]: assets/controlling-the-blue-line.jpeg
