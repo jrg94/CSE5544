@@ -62,6 +62,35 @@ see how their trends are correlated.
 
 #### Design
 
+Based on the images above, I'd be interested in creating a dual interactive plot
+where the top plot is a scatter plot and the bottom plot is a line plot. Selecting
+a patient would allow you to bring that patient to the foreground in both plots.
+You could also potential filter patients by a specific attribute, so only those
+patients would be in the foreground of both graphs.
+
+Specifically, the top plot would map every patient against their lifetime flag 
+count (y-axis) and their incidents (samples). In this plot, I would expect
+to see some sort of linear trend where more samples means more lifetime
+incidents. Patients who don't follow the trend may indicate outliers who
+need additional treatment.
+
+Meanwhile, the bottom plot would be a line graph of every patient's
+flag count over time (unsure about the units). In this plot, I would expect
+to see some sort of separation between mTBI patients and other patients.
+
+Obviously, the challenge in the second graph is labeling. We wouldn't want
+to use color to separate the lines as there could be thousands of patients.
+In addition, the x-axis isn't exactly simple. Not all patients share the 
+same time line or have the same number of samples, so mapping could be
+an issue. For those reasons, it may make sense to leave out the line plot
+and focus on the patient mapping. 
+
+At any rate, here's a sample look at the double plot solution:
+
+![Individual Patient Overview][5]
+
+Look to the explanation above for details.
+
 ### Design Analysis
 
 As a part of subsection 4, we were asked to participate in the voting
