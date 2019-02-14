@@ -154,3 +154,4 @@ To be completed next week.
 [2]: https://sites.google.com/site/datavisualizationspring2019/exercise/assignment-3-seeing-sequences-in-trajectory-data
 [3]: assets/clicks-impressions-over-time.JPG
 [4]: assets/clicks-impressions-position-over-time.JPG
+[5]: assets/Sketch.png
