@@ -50,6 +50,16 @@ own label on that graph which could be selected so all other patients would fade
 In this example, they do a bit of filtering by team, so it may be nice to filter
 by flag or something else.
 
+As for the line plot, I drew some inspiration from the graphics from Google Search
+Console which allows you to select which lines to show:
+
+![Clicks and Impressions Over Time][3]
+
+![Clicks, Impressions, and Position Over Time][4]
+
+It's not always clear how these graphs relate to each other, but you can clearly
+see how their trends are correlated.
+
 #### Design
 
 ### Design Analysis
@@ -71,3 +81,5 @@ To be completed next week.
 
 [1]: assets/controlling-the-blue-line.jpeg
 [2]: https://sites.google.com/site/datavisualizationspring2019/exercise/assignment-3-seeing-sequences-in-trajectory-data
+[3]: assets/clicks-impressions-over-time.JPG
+[4]: assets/clicks-impressions-position-over-time.JPG
