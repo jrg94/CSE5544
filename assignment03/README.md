@@ -104,6 +104,48 @@ own design using the following criteria:
 - whether or not it introduces clutter by comparing with all other designs
 - is the design visually pleasing?
 
+Let's take a look at the responses.
+
+#### How does the design address *event-relevant* tasks?
+
+Personally, I think this visualization does a good job of addressing 
+event-relevant tasks. In particular, it's focused on aggregating individual
+patient samples and draws relationships between patients who may have had more
+or less events.
+
+#### How many items can the design show on a 24-inch monitor?
+
+Based on hockey chart, I'd have to imagine at least 20 * 31 items which is the
+number of hockey players per team times the number of teams. That gives us a rough
+idea of how many data points are in the sample hockey image. In other words, we
+could probably map rough 600 or so patients to the graph.
+
+The line graph is far less scalable. I'd hate to draw 600 lines because there would be
+no real way to distinguish between them before filtering. 
+
+#### Does it use overview+detail technique?
+
+Absolutely! At first, all patients can be seen, but we can quickly filter by patient or
+any arbitrary criteria to start looking at subsets of patients. 
+
+#### Does it show "temporal" changes?
+
+In the patient scatter plot, there's not much in terms of temporal change. We're really
+just looking at totals. That's why the line plot of flags over time was also included, but 
+it seems to be more of a hindrance than a help.
+
+#### Whether or not it introduces clutter by comparing with all other designs
+
+I'm not sure how to interpret this question. To me, the visualization seems pretty clean.
+The overview can feel pretty cluttered, but it gives a nice overview of where the outliers
+are.
+
+#### Is the design visually pleasing?
+
+Based on the hockey example, yes! I'm not sure how to make this one just as visually appealing
+without assigning glyphs to patients by category (gender, age, etc.) or using individual photos.
+In either case, I'm pleased with the design.
+
 ## Part Two (6)
 
 To be completed next week.
