@@ -9,16 +9,27 @@ for the EHR data set.
 
 ### Group (1)
 
-Jeremy Grifski
+In part one, we were asked to get into groups. The following list
+contains all the group members.
+
+- Jeremy Grifski
 
 ### Tasks & Visualization (2, 3, 5)
 
-Data of interest:
+In part one, we were asked to come up with some interesting tasks to support
+in our visualization such as finding the time span of the most frequent encounter 
+during the 2nd month. Then, we were asked to abstract that task, so it could be
+reused in other scenarios.
+
+To address subsection 2, 3, and 5, we listed some data of interest, some associated
+tasks, some inspiration for visualization, and a sample visualization.
+
+#### Data of interest
 
 - PatientID
 - Flags (PTSD, Depression, Audiology, etc.)
 
-Tasks:
+#### Tasks
 
 - Count flag total per patient over time
   - Line plot (flag count over time)
@@ -28,11 +39,11 @@ Tasks:
   - Both plots show an overview of everything
   - Allow for patient selection which fades out both graphs
   
-Inspiration:
+#### Inspiration
 
 ![Controlling the Blue Line][1]
 
-Design:
+#### Design
 
 ### Design Analysis (4)
 
