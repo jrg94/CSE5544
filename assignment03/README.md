@@ -2,19 +2,19 @@
 
 [Assignment 03][2] is a two part assignment based on event analysis.
 
-## Part One (1-5)
+## Part One
 
 During part one, we were asked to come up with some visualization methods
 for the EHR data set. 
 
-### Group (1)
+### Group
 
-In part one, we were asked to get into groups. The following list
-contains all the group members.
+In part one, we were asked to get into groups according to subsection 1. The 
+following list contains all the group members.
 
 - Jeremy Grifski
 
-### Tasks & Visualization (2, 3, 5)
+### Tasks & Visualization
 
 In part one, we were asked to come up with some interesting tasks to support
 in our visualization such as finding the time span of the most frequent encounter 
@@ -41,11 +41,22 @@ tasks, some inspiration for visualization, and a sample visualization.
   
 #### Inspiration
 
+The following hockey scatterplot does a great job of illustrating what I would like to
+do for the lifetime flag totals vs. incident count graph. Each patient would have their
+own label on that graph which could be selected so all other patients would fade.
+
 ![Controlling the Blue Line][1]
+
+In this example, they do a bit of filtering by team, so it may be nice to filter
+by flag or something else.
 
 #### Design
 
-### Design Analysis (4)
+### Design Analysis
+
+As a part of subsection 4, we were asked to participate in the voting
+of other designs. In addition, we were asked to critically analyze our
+own design using the following criteria:
 
 - how does the design address *event-relevant* tasks?
 - how many items can the design show on a 24-inch monitor?
@@ -56,7 +67,7 @@ tasks, some inspiration for visualization, and a sample visualization.
 
 ## Part Two (6)
 
-
+To be completed next week.
 
 [1]: assets/controlling-the-blue-line.jpeg
 [2]: https://sites.google.com/site/datavisualizationspring2019/exercise/assignment-3-seeing-sequences-in-trajectory-data
