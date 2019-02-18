@@ -47,22 +47,21 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .attr("y", 6)
     .attr("dy", "0.71em")
     .attr("text-anchor", "end")
-    .text("Speed");
+    .text("PatientID");
 
-  /**
+
   g.selectAll(".bar")
     .data(data)
     .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) {
-      return x(d.Gender);
+      return x(Number(d.Days_From1stTBI));
     })
     .attr("y", function(d) {
-      return y(Number(d.PatientID));
+      return y(d.PatientID);
     })
-    .attr("width", x.bandwidth())
-    .attr("height", function(d) {
-      return height - y(Number(d.PatientID));
+    .attr("height", y.bandwidth())
+    .attr("width", function(d) {
+      return width - x(Number(d.Days_From1stTBI));
     });
-    **/
 });
