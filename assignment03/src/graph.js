@@ -23,12 +23,12 @@ var x = d3.scaleBand()
 var y = d3.scaleLinear()
   .rangeRound([height, 0]);
 
-d3.tsv("/data/morley.tsv").then(function(data) {
+d3.csv("/data/EHRdataSample.csv").then(function(data) {
   x.domain(data.map(function(d) {
-    return d.Run;
+    return d.Gender;
   }));
   y.domain([0, d3.max(data, function(d) {
-    return Number(d.Speed);
+    return Number(d.Age);
   })]);
 
   g.append("g")
@@ -50,13 +50,13 @@ d3.tsv("/data/morley.tsv").then(function(data) {
     .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) {
-      return x(d.Run);
+      return x(d.Gender);
     })
     .attr("y", function(d) {
-      return y(Number(d.Speed));
+      return y(Number(d.Age));
     })
     .attr("width", x.bandwidth())
     .attr("height", function(d) {
-      return height - y(Number(d.Speed));
+      return height - y(Number(d.Age));
     });
 });
