@@ -25,12 +25,15 @@ var y = d3.scaleLinear()
 
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
   console.log(data)
-  x.domain(data.map(function(d) {
-    return d["Date of Injury"];
-  }));
-  y.domain(data.map(function(d) {
-    return d.PatientID;
-  }));
+  x.domain(
+    [
+      d3.min(data, function(d) { return Number(d.Days_From1stTBI); }),
+      d3.max(data, function(d) { return Number(d.Days_From1stTBI); })
+    ]
+  );
+  y.domain(
+    data.map(function(d) { return d.PatientID; })
+  );
 
   g.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -46,6 +49,7 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .attr("text-anchor", "end")
     .text("Speed");
 
+  /**
   g.selectAll(".bar")
     .data(data)
     .enter().append("rect")
@@ -60,4 +64,5 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .attr("height", function(d) {
       return height - y(Number(d.PatientID));
     });
+    **/
 });
