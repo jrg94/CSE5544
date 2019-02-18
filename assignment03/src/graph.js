@@ -24,12 +24,13 @@ var y = d3.scaleLinear()
   .rangeRound([height, 0]);
 
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
+  console.log(data)
   x.domain(data.map(function(d) {
-    return d.Gender;
+    return d["Date of Injury"];
   }));
-  y.domain([0, d3.max(data, function(d) {
-    return Number(d.Age);
-  })]);
+  y.domain(data.map(function(d) {
+    return d.PatientID;
+  }));
 
   g.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -53,10 +54,10 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
       return x(d.Gender);
     })
     .attr("y", function(d) {
-      return y(Number(d.Age));
+      return y(Number(d.PatientID));
     })
     .attr("width", x.bandwidth())
     .attr("height", function(d) {
-      return height - y(Number(d.Age));
+      return height - y(Number(d.PatientID));
     });
 });
