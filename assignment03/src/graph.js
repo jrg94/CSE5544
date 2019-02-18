@@ -1,30 +1,57 @@
-var bodySelection = d3.select("body");
+var svg = d3.select("body").append("svg"),
+  margin = {
+    top: 20,
+    right: 20,
+    bottom: 30,
+    left: 50
+  },
+  width = +svg.attr("width") - margin.left - margin.right,
+  height = +svg.attr("height") - margin.top - margin.bottom,
+  g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var svgSelection = bodySelection.append("svg")
-  .attr("width", 50)
-  .attr("height", 50);
+var parseTime = d3.timeParse("%d-%b-%y");
 
-sample = [4, 8, 15, 16, 23, 42]
+var x = d3.scaleBand()
+  .rangeRound([0, width])
+  .padding(0.1);
 
-const margin = 60;
-const width = 1000 - 2 * margin;
-const height = 600 - 2 * margin;
+var y = d3.scaleLinear()
+  .rangeRound([height, 0]);
 
-const chart = svgSelection.append('g')
-  .attr('transform', `translate(${margin}, ${margin})`);
+d3.tsv("/data/morley.tsv").then(function(data) {
+  x.domain(data.map(function(d) {
+    return d.Run;
+  }));
+  y.domain([0, d3.max(data, function(d) {
+    return Number(d.Speed);
+  })]);
 
-const yScale = d3.scaleLinear()
-  .range([height, 0])
-  .domain([0, 100]);
+  g.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
 
-chart.append('g')
-  .call(d3.axisLeft(yScale));
+  g.append("g")
+    .call(d3.axisLeft(y))
+    .append("text")
+    .attr("fill", "#000")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", "0.71em")
+    .attr("text-anchor", "end")
+    .text("Speed");
 
-const xScale = d3.scaleBand()
-  .range([0, width])
-  .domain(sample.map((s) => s.language))
-  .padding(0.2)
-
-chart.append('g')
-  .attr('transform', `translate(0, ${height})`)
-  .call(d3.axisBottom(xScale));
+  g.selectAll(".bar")
+    .data(data)
+    .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d) {
+      return x(d.Run);
+    })
+    .attr("y", function(d) {
+      return y(Number(d.Speed));
+    })
+    .attr("width", x.bandwidth())
+    .attr("height", function(d) {
+      return height - y(Number(d.Speed));
+    });
+});
