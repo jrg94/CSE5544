@@ -1,6 +1,6 @@
 d3.select("body").append("svg")
   .attr("width", 960)
-  .attr("height", 500);
+  .attr("height", 800);
 
 var svg = d3.select("svg"),
   margin = {
@@ -23,6 +23,9 @@ var y = d3.scaleBand()
   .range([0, height])
   .padding(.2);
 
+var colors = d3.scaleSequential(d3.interpolateInferno)
+  .domain([0, width])
+
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
 
   xMax = d3.max(data, function(d) { return Number(d.Days_From1stTBI); })
@@ -34,26 +37,6 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
   y.domain(
       data.map(function(d) { return d.PatientID; })
   );
-
-  g.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x))
-    .append("text")
-    .attr("x", width/2)
-    .attr("y", 15)
-    .attr("fill", "#000")
-    .text("Days From 1st TBI");
-
-  g.append("g")
-    .attr("transform", "translate(" + (width / 2) + ",0)")
-    .call(d3.axisLeft(y))
-    .append("text")
-    .attr("fill", "#000")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr("dy", "0.71em")
-    .attr("text-anchor", "end")
-    .text("PatientID");
 
   g.selectAll(".bar")
     .data(data)
@@ -69,5 +52,28 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
       return Math.abs(x(d.Days_From1stTBI) - x(0));
     })
     .attr("height", y.bandwidth())
+    .attr("fill", function(d, i) {
+      return colors(d.Days_From1stTBI);
+    });
+
+  g.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .append("text")
+    .attr("x", width/2)
+    .attr("y", 30)
+    .attr("fill", "#000")
+    .text("Days From 1st TBI");
+
+  g.append("g")
+    .attr("transform", "translate(" + (width / 2) + ",0)")
+    .call(d3.axisLeft(y))
+    .append("text")
+    .attr("fill", "#000")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", "0.71em")
+    .attr("text-anchor", "end")
+    .text("PatientID");
 
 });
