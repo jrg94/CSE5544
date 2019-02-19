@@ -36,10 +36,9 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
     .append("text")
-    .attr("x", width/2 + 40)
+    .attr("x", width/2)
     .attr("y", 15)
     .attr("fill", "#000")
-    .attr("text-anchor", "end")
     .text("Days From 1st TBI");
 
   g.append("g")
