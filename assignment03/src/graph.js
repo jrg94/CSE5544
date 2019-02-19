@@ -26,10 +26,7 @@ var y = d3.scaleLinear()
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
   console.log(data)
   x.domain(
-    [
-      d3.min(data, function(d) { return Number(d.Days_From1stTBI); }),
-      d3.max(data, function(d) { return Number(d.Days_From1stTBI); })
-    ]
+      d3.extent(data, function(d) { return Number(d.Days_From1stTBI); }),
   );
   y.domain(
     data.map(function(d) { return d.PatientID; })
@@ -38,6 +35,12 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
   g.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
+    .append("text")
+    .attr("x", width/2 + 40)
+    .attr("y", 15)
+    .attr("fill", "#000")
+    .attr("text-anchor", "end")
+    .text("Days From 1st TBI");
 
   g.append("g")
     .attr("transform", "translate(" + (width / 2) + ",0)")
@@ -54,13 +57,14 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .data(data)
     .enter().append("rect")
     .attr("class", "bar")
-    .attr("width", function(d) {
-      return Number(d.Days_From1stTBI);
-    })
-    /**
     .attr("x", function(d) {
       return x(Number(d.Days_From1stTBI));
+    })
+    /**
+    .attr("width", function(d) {
+      return Number(d.Days_From1stTBI);
     })**/
+
     .attr("y", function(d) {
       return y(d.PatientID);
     })
