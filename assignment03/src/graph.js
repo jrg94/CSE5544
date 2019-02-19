@@ -23,8 +23,7 @@ var y = d3.scaleBand()
   .range([0, height])
   .padding(.2);
 
-var colors = d3.scaleSequential(d3.interpolateInferno)
-  .domain([0, width])
+var colors = d3.scaleSequential(d3.interpolateInferno);
 
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
 
@@ -33,6 +32,7 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
   bound = d3.max([xMax, Math.abs(xMin)])
 
   x.domain([-bound, bound]);
+  colors.domain([-bound, bound]);
 
   y.domain(
       data.map(function(d) { return d.PatientID; })
