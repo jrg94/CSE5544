@@ -16,21 +16,23 @@ var svg = d3.select("svg"),
 
 var parseTime = d3.timeParse("%d-%b-%y");
 
-var x = d3.scaleBand()
-  .rangeRound([0, width])
-  .padding(0.1);
+var x = d3.scaleLinear()
+  .range([0, width])
 
-var y = d3.scaleLinear()
-  .rangeRound([height, 0]);
+var y = d3.scaleBand()
+  .range([0, height])
+  .padding(.2);
 
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
-  console.log(data)
+
   x.domain(
-      d3.extent(data, function(d) { return Number(d.Days_From1stTBI); }),
+      d3.extent(data, function(d) { return d.Days_From1stTBI; }),
   );
+
   y.domain(
-    data.map(function(d) { return d.PatientID; })
+      data.map(function(d) { return d.PatientID; })
   );
+
 
   g.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -57,15 +59,14 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) {
-      return x(Number(d.Days_From1stTBI));
+      return x(Math.min(0, Number(d.Days_From1stTBI)));
     })
-    /**
-    .attr("width", function(d) {
-      return Number(d.Days_From1stTBI);
-    })**/
-
     .attr("y", function(d) {
       return y(d.PatientID);
     })
-    .attr("height", y.bandwidth());
+    .attr("width", function(d) {
+      return 5;
+    })
+    .attr("height", y.bandwidth())
+
 });
