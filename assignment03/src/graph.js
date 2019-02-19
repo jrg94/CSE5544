@@ -18,8 +18,17 @@ var margin = {
 
 var width = +svg.attr("width") - margin.left - margin.right
 var height = +svg.attr("height") - margin.top - margin.bottom
+
 var g = svg.append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("text")
+  .attr("x", width / 2)
+  .attr("y", 20)
+  .attr("text-anchor", "middle")
+  .style("font-size", "16px")
+  .style("text-decoration", "underline")
+  .text("Patient ID vs. Days from First TBI");
 
 var parseTime = d3.timeParse("%d-%b-%y");
 
