@@ -76,6 +76,13 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .attr("height", y.bandwidth())
     .attr("fill", function(d, i) {
       return colors(d.Days_From1stTBI);
+    })
+    .attr("opacity", function(d) {
+      if (d.Days_From1stTBI < 0) {
+        return 0.5;
+      } else {
+        return 1.0;
+      }
     });
 
   g.append("g")
