@@ -9,16 +9,17 @@ svg.append("rect")
   .attr("height", "100%")
   .attr("fill", "gray");
 
-margin = {
-  top: 20,
-  right: 20,
+var margin = {
+  top: 30,
+  right: 30,
   bottom: 30,
-  left: 50
+  left: 30
 }
 
-width = +svg.attr("width") - margin.left - margin.right
-height = +svg.attr("height") - margin.top - margin.bottom
-g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var width = +svg.attr("width") - margin.left - margin.right
+var height = +svg.attr("height") - margin.top - margin.bottom
+var g = svg.append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var parseTime = d3.timeParse("%d-%b-%y");
 
