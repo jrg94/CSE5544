@@ -65,13 +65,13 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) {
-      return x(Math.min(0, Number(d.Days_From1stTBI)));
+      return x(d.Days_From1stTBI);
     })
     .attr("y", function(d) {
       return y(d.PatientID);
     })
     .attr("width", function(d) {
-      return Math.abs(x(d.Days_From1stTBI) - x(0));
+      return 3;
     })
     .attr("height", y.bandwidth())
     .attr("fill", function(d, i) {
