@@ -159,4 +159,4 @@ voting process. You can find my visualization below or [live here][6]:
 [4]: assets/clicks-impressions-position-over-time.JPG
 [5]: assets/Sketch.png
 [6]: assignment03.html
-[7]: assets/solution.png
+[7]: assets/solution.JPG
