@@ -43,6 +43,8 @@ var colors = d3.scaleSequential(d3.interpolateCool);
 
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
 
+  console.log(data);
+
   xMax = d3.max(data, function(d) {
     return Number(d.Days_From1stTBI);
   })
@@ -113,14 +115,15 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
 function handleMouseOver(d, i) { // Add interactivity
   svg.append("text")
     .attr("x", function() {
-      return x(d.Days_From1stTBI) - 30;
+      return x(d.Days_From1stTBI);
     })
     .attr("y", function() {
-      return y(d.PatientID) - 15;
+      return y(d.PatientID) + 20;
     })
+    .attr("fill", "#FFF")
     .attr("id", "t" + d.EncounterID)
     .text(function() {
-      return d["Date of Injury"]; // Value of the text
+      return d.Encounter_date; // Value of the text
     });
 }
 
