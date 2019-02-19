@@ -23,7 +23,7 @@ var y = d3.scaleBand()
   .range([0, height])
   .padding(.2);
 
-var colors = d3.scaleSequential(d3.interpolateInferno);
+var colors = d3.scaleSequential(d3.interpolateCool);
 
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
 
