@@ -153,6 +153,23 @@ voting process. You can find my visualization below or [live here][6]:
 
 ![Patient ID vs. Days From Encounter][7]
 
+In addition to the visualization, we were asked to perform a critical analysis
+of the visualization using the following questions:
+
+1. How have the encounters reduced between the first and the second three months?
+2. How have the frequency of encounters (hospital visits) changed from the first
+to the second three months?
+
+In addition, we were asked to cover three pros and cons of this visualization.
+
+In the following sections, I'll attempt to address these questions.
+
+### Reduction of Encounters
+
+### Frequency of Encounters
+
+### Pros and Cons
+
 [1]: assets/controlling-the-blue-line.jpeg
 [2]: https://sites.google.com/site/datavisualizationspring2019/exercise/assignment-3-seeing-sequences-in-trajectory-data
 [3]: assets/clicks-impressions-over-time.JPG
