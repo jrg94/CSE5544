@@ -83,7 +83,9 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
       } else {
         return 1.0;
       }
-    });
+    })
+    .on("mouseover", handleMouseOver)
+    .on("mouseout", handleMouseOut);
 
   g.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -107,3 +109,21 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .text("PatientID");
 
 });
+
+function handleMouseOver(d, i) { // Add interactivity
+  svg.append("text")
+    .attr("x", function() {
+      return x(d.Days_From1stTBI) - 30;
+    })
+    .attr("y", function() {
+      return y(d.PatientID) - 15;
+    })
+    .attr("id", "t" + d.EncounterID)
+    .text(function() {
+      return d["Date of Injury"]; // Value of the text
+    });
+}
+
+function handleMouseOut(d, i) {
+  d3.select("#t" + d.EncounterID).remove(); // Remove text location
+}
