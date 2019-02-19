@@ -166,7 +166,34 @@ In the following sections, I'll attempt to address these questions.
 
 ### Reduction of Encounters
 
+Perhaps I didn't follow directions correctly, but it seems difficult to tell
+how the encounters reduced over the months. Since the patient graphs are
+organized by days from encounter, it's tough to make any sort of conclusion
+regarding encounters on a monthly basis.
+
+That said, we can look at the first 180 days of each patient following the TBI
+and see if there are any sort of trends from the first to second half. It
+appears that about half the patients stopped coming back after their TBI while
+the remaining half consistently came back.
+
+It would be interesting to sort the patients by encounter totals to see which
+patients frequently visited the doctors and how the timing of the visits affects
+the overall frequency of encounters.
+
 ### Frequency of Encounters
+
+To be honest, I'm not sure how this question is different from the previous one.
+If the previous question asks about reduction of encounters, I suppose this one
+broadens the discussion.
+
+In that case, it appears encounters are densely packed after a TBI and reduce in
+frequency over time. In some cases, the encounters drop off completely before
+resurfacing with the same frequency.
+
+Beyond that, it's tough to gather any sort of month-by-month data with this
+visualization. That said, I think this is a great visualization for individual
+patient trends. We can clearly see how a TBI affects the encounter rate of
+individual patients. 
 
 ### Pros and Cons
 
