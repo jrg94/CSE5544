@@ -40,6 +40,7 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .call(d3.axisBottom(x))
 
   g.append("g")
+    .attr("transform", "translate(" + (width / 2) + ",0)")
     .call(d3.axisLeft(y))
     .append("text")
     .attr("fill", "#000")
@@ -49,19 +50,19 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
     .attr("text-anchor", "end")
     .text("PatientID");
 
-
   g.selectAll(".bar")
     .data(data)
     .enter().append("rect")
     .attr("class", "bar")
+    .attr("width", function(d) {
+      return Number(d.Days_From1stTBI);
+    })
+    /**
     .attr("x", function(d) {
       return x(Number(d.Days_From1stTBI));
-    })
+    })**/
     .attr("y", function(d) {
       return y(d.PatientID);
     })
-    .attr("height", y.bandwidth())
-    .attr("width", function(d) {
-      return width - x(Number(d.Days_From1stTBI));
-    });
+    .attr("height", y.bandwidth());
 });
