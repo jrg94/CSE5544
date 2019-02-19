@@ -17,7 +17,7 @@ var svg = d3.select("svg"),
 var parseTime = d3.timeParse("%d-%b-%y");
 
 var x = d3.scaleLinear()
-  .range([0, width])
+  .range([0, width]);
 
 var y = d3.scaleBand()
   .range([0, height])
@@ -25,14 +25,15 @@ var y = d3.scaleBand()
 
 d3.csv("/data/EHRdataSample.csv").then(function(data) {
 
-  x.domain(
-      d3.extent(data, function(d) { return d.Days_From1stTBI; }),
-  );
+  xMax = d3.max(data, function(d) { return Number(d.Days_From1stTBI); })
+  xMin = d3.min(data, function(d) { return Number(d.Days_From1stTBI); })
+  bound = d3.max([xMax, Math.abs(xMin)])
+
+  x.domain([-bound, bound]);
 
   y.domain(
       data.map(function(d) { return d.PatientID; })
   );
-
 
   g.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -65,7 +66,7 @@ d3.csv("/data/EHRdataSample.csv").then(function(data) {
       return y(d.PatientID);
     })
     .attr("width", function(d) {
-      return 5;
+      return Math.abs(x(d.Days_From1stTBI) - x(0));
     })
     .attr("height", y.bandwidth())
 
