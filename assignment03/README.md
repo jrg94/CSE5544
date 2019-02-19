@@ -193,9 +193,25 @@ resurfacing with the same frequency.
 Beyond that, it's tough to gather any sort of month-by-month data with this
 visualization. That said, I think this is a great visualization for individual
 patient trends. We can clearly see how a TBI affects the encounter rate of
-individual patients. 
+individual patients.
 
 ### Pros and Cons
+
+As I've begun to discuss a bit in the previous sections, there are some
+advantages and disadvantages to this visualizations.
+
+#### Pros
+
+-
+-
+-
+
+#### Cons
+
+-
+-
+-
+-
 
 [1]: assets/controlling-the-blue-line.jpeg
 [2]: https://sites.google.com/site/datavisualizationspring2019/exercise/assignment-3-seeing-sequences-in-trajectory-data
