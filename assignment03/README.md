@@ -212,6 +212,25 @@ advantages and disadvantages to this visualizations.
 - Patient information like gender, age, and flags is nonexistent
 - Implementing all features would start to introduce confusion and chartjunk
 
+### Extra Credit
+
+I'm not sure if I addressed anything in the extra credit, so I'll take some time
+to briefly explain my solution.
+
+As you can see in the static image, every encounter per patient is denoted by
+a 5 pixel wide bar colored using the cool sequential color scale. Earlier
+encounters are in purple and later encounters are in green.
+
+In addition, all bars are interactive in the sense that they change color on
+mouse over. In addition, the data of that data point is displayed as a tooltip.
+This way some of the relative temporal information is captured. After all, two
+bars can have the same x-value and still have different dates.
+
+Finally, bars to the left of the first encounter line have 50% opacity.
+Meanwhile, bars to the right of the first encounter line have 100% opacity.
+
+Beyond that, there is no additional encoding.
+
 
 [1]: assets/controlling-the-blue-line.jpeg
 [2]: https://sites.google.com/site/datavisualizationspring2019/exercise/assignment-3-seeing-sequences-in-trajectory-data
