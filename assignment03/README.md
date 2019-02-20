@@ -202,16 +202,16 @@ advantages and disadvantages to this visualizations.
 
 #### Pros
 
--
--
--
+- Individual patient trends over time are really easy to see
+- Relationships between before TBI and after are very clear
+- Frequencies of events are easy to see
 
 #### Cons
 
--
--
--
--
+- Relative patient trends over time are not easy to see
+- Patient information like gender, age, and flags is nonexistent
+- Implementing all features would start to introduce confusion and chartjunk
+
 
 [1]: assets/controlling-the-blue-line.jpeg
 [2]: https://sites.google.com/site/datavisualizationspring2019/exercise/assignment-3-seeing-sequences-in-trajectory-data
