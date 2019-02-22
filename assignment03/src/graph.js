@@ -41,7 +41,7 @@ var y = d3.scaleBand()
 
 var colors = d3.scaleSequential(d3.interpolateCool);
 
-d3.csv("/data/EHRdataSample.csv").then(function(data) {
+d3.csv("data/EHRdataSample.csv").then(function(data) {
 
   console.log(data);
 
