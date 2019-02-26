@@ -178,8 +178,8 @@ Trends][4]:
 - South America
 - The Caribbean
 
-Since I only have 10 regions, I have a lot of options in terms of encoding.
-However, since I'm trying to show time series data, I have to be careful
+Since I only have 10 regions (categories), I have a lot of options in terms of
+encoding. However, since I'm trying to show time series data, I have to be careful
 how I order my data.
 
 Overall, I chose a simple line plot where the x-axis would feature the years, and
@@ -190,7 +190,11 @@ lines would be transparently colored. This takes advantage of the focus+context
 mantra which allows us to see what we need to see in context.
 
 As always, I'd feature an easy to read legend on the side of the graph, so readers
-could tell what each line signified.
+could tell what each line signified. In addition, I would give the graph a clearly
+readable title such as **How Aid Has Changed in the Middle East Over Time**.
+
+In general, I'm convinced this design will clearly communicate what is intended
+as line charts tend to be good at showing data trends in an easy-to-digest format.
 
 [1]: assets/new-york-times.JPG
 [2]: assets/washington-post.JPG
