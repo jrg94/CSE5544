@@ -1,5 +1,9 @@
 # Midterm Exam
 
+> To submit, please drop your answers to your Github repository in a sub-folder
+> named "Midterm exam". Please submit by 11pm on Tuesday 26. This part must be
+> your own. Please set a clock and finish in 40 minutes.  
+
 ## Problem 01 (40 Points)
 
 > Now almost all news media become an avid consumer of visualization. As a
