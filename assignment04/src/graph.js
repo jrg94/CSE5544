@@ -1,12 +1,10 @@
-var margin = 100;
 var width = 800;
 var height = 800;
 
 d3.select("body").append("svg")
-  .attr("width", width + 2 * margin)
-  .attr("height", height + 2 * margin)
-  .append("g")
-  .attr("translate(" + margin + "," + margin + ")");
+  .attr("width", width)
+  .attr("height", height)
+  .append("g");
 
 var svg = d3.select("svg");
 
@@ -21,22 +19,20 @@ svg.append("g")
   .attr("transform", "translate(" + width / 2 + ",0)")
   .call(d3.axisLeft(yScale));
 
-
-
 d3.csv("data/testGHZ400clean.data").then(function(data) {
 
   console.log(data);
 
+
   data.forEach(function(p) {
-    
 
     svg.append("g")
-    .append("circle")
-    .attr("r",2)
-    .attr("cx", xScale(p.px))
-    .attr("cy", yScale(p.py))
-    .attr("transform", "translate(" + (xScale(p.x) - xScale(0)) + "," + (yScale(p.y) - yScale(0)) + ")")
-    ;
+      .append("circle")
+      .attr("r", 1)
+      //.attr("cx", xScale(p.px))
+      //.attr("cy", yScale(p.py))
+      .attr("transform", "translate(" + (xScale(p.x)) + "," + (yScale(p.y)) + ")");
+
   });
 
 });
