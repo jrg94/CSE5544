@@ -10,8 +10,8 @@ d3.select("body").append("svg")
 
 var svg = d3.select("svg");
 
-var yScale = d3.scaleLinear().range([height, 0]).domain([-5, 5]);
-var xScale = d3.scaleLinear().range([0, width]).domain([-5, 5]);
+var yScale = d3.scaleLinear().range([height, 0]).domain([-1, 1]);
+var xScale = d3.scaleLinear().range([0, width]).domain([-1, 1]);
 
 svg.append("g")
   .attr("transform", "translate(0," + height / 2 + ")")
@@ -28,12 +28,13 @@ d3.csv("data/testGHZ400clean.data").then(function(data) {
   console.log(data);
 
   data.forEach(function(p) {
+    
+
     svg.append("g")
-    .append("path")
-    .attr("d", "M" + xScale(0) + " " + yScale(0) + " L" + xScale(p.px) + " " + yScale(p.py))
-    .attr("stroke", "blue")
-    .attr("stroke-width", 1)
-    .attr("fill", "none")
+    .append("circle")
+    .attr("r",2)
+    .attr("cx", xScale(p.px))
+    .attr("cy", yScale(p.py))
     .attr("transform", "translate(" + (xScale(p.x) - xScale(0)) + "," + (yScale(p.y) - yScale(0)) + ")")
     ;
   });
