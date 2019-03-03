@@ -4,11 +4,6 @@ d3.select("body").append("svg")
 
 var svg = d3.select("svg");
 
-svg.append("rect")
-  .attr("width", "100%")
-  .attr("height", "100%")
-  .attr("fill", "gray");
-
 var margin = {
   top: 30,
   right: 30,
@@ -41,7 +36,7 @@ var y = d3.scaleBand()
 
 var colors = d3.scaleSequential(d3.interpolateCool);
 
-d3.csv("data/EHRdataSample.csv").then(function(data) {
+d3.csv("data/testGHZ400clean.data").then(function(data) {
 
   console.log(data);
 
