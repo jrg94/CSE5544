@@ -34,17 +34,6 @@ d3.csv("data/testGHZ400clean.data").then(function(data) {
     p.px /= magnitude;
     p.py /= magnitude;
 
-    // vector
-    svg.append("g")
-    .append("path")
-    .attr("d", "M" + xScale(0) + " " + yScale(0) + " L" + xScale(p.px) + " " + yScale(p.py))
-    .attr("stroke", "blue")
-    .attr("stroke-width", 1)
-    .attr("fill", "none")
-    .attr("transform", "translate(" + (xScale(p.x) - xScale(0)) + "," + (yScale(p.y) - yScale(0)) + ")")
-    ;
-
-
   });
 
 });
