@@ -61,13 +61,21 @@ vectors.
 ![20 x 20 Sampling Vector Field][6]
 
 At this point, we start to cross over into undersampling territory. At a high
-level, we can still see some of the major trends in vector field, but we start
-to lose some of the finer details. Sampling less than this would like result in
-the appearance of completely new trends.
+level, we can still see some of the major trends in the vector field, but we
+start to lose some of the finer details. Sampling less than this would like
+result in the appearance of completely new trends.
 
 ### Figure 6
 
+The following visualization demonstrates 25 x 25 sampling for a total of 256
+vectors.
 
+![25 x 25 Sampling Vector Field][7]
+
+With only 256 vectors, we start to see serious sampling artifacts. For instance,
+the smoothness between vectors is almost completely gone. It's not unusual to
+spot two adjacent vectors with wildly different lengths. In addition, some areas
+that used to have flow suddenly appear as dead zones.
 
 [1]: assignment03.html
 [2]: assets/1-by-1-sampling.JPG
@@ -75,3 +83,4 @@ the appearance of completely new trends.
 [4]: assets/5-by-5-sampling.JPG
 [5]: assets/10-by-10-sampling.JPG
 [6]: assets/20-by-20-sampling.JPG
+[7]: assets/25-by-25-sampling.JPG
