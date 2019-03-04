@@ -196,12 +196,12 @@ great for observing the narrow stagnant areas.
 
 Meanwhile, vector lengths are a powerful tool for recognizing flow trends.
 For example, you can extend the length of vectors to try to see trends in
-very small vectors. Areas of the field that may have looked stagnant before can
-suddenly become expressive.
+very small vectors (see [Figure 9][10]). Areas of the field that may have looked
+stagnant before can suddenly become expressive.
 
 Of course, there's a dark side to increasing vector lengths. If you're not
 careful, the vectors can overlap each other, and you'll start losing clarity in
-the field.
+the field (see [Figure 8][9]).
 
 Overall, I've found that varying the length of the vectors really didn't hurt my
 ability to see any of the three features except maybe the downward trend. After
