@@ -30,8 +30,8 @@ d3.csv("data/testGHZ400clean.data").then(function(data) {
   data.forEach(function(row) {
     var i = 0;
     row.forEach(function(p) {
-      //p.px /= 10; // Arbitrary scale down
-      //p.py /= 10;
+      p.px /= 40; // Arbitrary scale down
+      p.py /= 40;
       if (i % 20 == 0 && j % 20 == 0) { // Sampling
 
         svg.append("g")

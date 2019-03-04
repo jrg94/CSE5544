@@ -131,9 +131,15 @@ It's just tough to see where some vectors begin and others end.
 
 ### Figure 9
 
-The following visualization demonstrates 10 x 10 sampling and 1/10 scaling.
+The following visualization demonstrates 20 x 20 sampling and 1/10 scaling.
 
 ![1/10 Scaling Vector Field][10]
+
+### Figure 10
+
+The following visualization demonstrates 20 x 20 sampling and 1/100 scaling.
+
+![1/100 Scaling Vector Field][11]
 
 ## Experimentation and Report
 
@@ -201,3 +207,4 @@ all, the longer the vectors the more information that's lost due to crowding.
 [8]: assets/50-by-50-sampling.JPG
 [9]: assets/20-by-20-sampling-no-scale.JPG
 [10]: assets/20-by-20-sampling-10-scale.JPG
+[11]: assets/20-by-20-sampling-100-scale.JPG
