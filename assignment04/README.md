@@ -9,6 +9,31 @@ explain my findings.
 To visualize the vector field, I used several data filtering methods. For the
 sake of completeness, I'll share all of the figures I generated below.
 
+Before that, I'd like to take a moment to explain the design. In order to
+use the provided data file, I did a bit of data preprocessing in Python. In
+particular, I removed the first line, parsed all the remaining lines, and
+output them to a csv:
+
+```python
+with open("E:\\Projects\\CSE5544\\assignment04\\data\\testGHZ400.data") as f:
+    with open("E:\\Projects\\CSE5544\\assignment04\\data\\testGHZ400clean.data", "w") as out:
+        for line in f:
+            print(",".join(line.split()), file=out)
+```
+
+At that point, I loaded the csv into D3, converted the new array into a 2D
+matrix, and iterated over each data point for plotting purposes. Sampling
+was accomplished by tracking the current row and column and running a simple
+modular expression of those indices:
+
+```javascript
+if (i % 2 == 0 && j % 2 == 0)
+```
+
+In this case, I sampled every other row and column. The values above can be
+changed to allow for any sampling approach. The following graphs demonstrate
+the results.
+
 ### Figure 1
 
 The following visualization demonstrates 1 x 1 sampling for a total of 160,000
@@ -86,7 +111,11 @@ vectors.
 
 Finally, we end of with a vector field that looks sort of like a set of clocks
 from around the world in no particular order. Some dominant trends can still be
-spotted, but overall flow is structure is completely lost. 
+spotted, but overall flow is structure is completely lost.
+
+## Experimentation and Report
+
+Following the direct visualization, we were asked
 
 [1]: assignment03.html
 [2]: assets/1-by-1-sampling.JPG
