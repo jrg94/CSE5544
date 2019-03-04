@@ -135,11 +135,21 @@ The following visualization demonstrates 20 x 20 sampling and 1/10 scaling.
 
 ![1/10 Scaling Vector Field][10]
 
+In general, I like the scaling here because it does a great job of illustrating
+the flow. Clearly, there's a strong spiral forming in the bottom right and top
+left corners of the graph. Also, some the areas that lack flow area even less
+noticeable now. Of course, the overlapping vectors are not ideal.
+
 ### Figure 10
 
 The following visualization demonstrates 20 x 20 sampling and 1/100 scaling.
 
 ![1/100 Scaling Vector Field][11]
+
+Finally, we go to the opposite extreme of scaling down too much. In this figure,
+it's almost impossible to see any vector activity at all. That said, it does a
+nice job of capturing the strongest vectors as they're the only green bits in
+the entire visualization.
 
 ## Experimentation and Report
 
