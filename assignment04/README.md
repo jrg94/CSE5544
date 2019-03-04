@@ -37,6 +37,9 @@ To get the appropriate vector length, I uniformly scaled down each vector by
 an arbitrary value (1/40). This appeared to be the best choice for the
 visualization. During experimentation, I changed this value.
 
+Also, I should note that I didn't use traditional arrows for encoding.
+Instead, at the tip of each vector, I placed a circle. 
+
 The following graphs demonstrate the results.
 
 ### Figure 1
