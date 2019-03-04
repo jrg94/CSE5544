@@ -32,7 +32,8 @@ d3.csv("data/testGHZ400clean.data").then(function(data) {
     row.forEach(function(p) {
       p.px /= 40; // Arbitrary scale down
       p.py /= 40;
-      if (i % 10 == 0 && j % 10 == 0) {
+      if (i % 50 == 0 && j % 50 == 0) {
+
         svg.append("g")
           .append("path")
           .attr("d", "M" + xScale(0) + " " + yScale(0) + " L" + xScale(p.px) + " " + yScale(p.py))
