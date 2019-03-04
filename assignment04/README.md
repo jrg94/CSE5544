@@ -36,13 +36,42 @@ rendering time is decent.
 The following visualization demonstrates 5 x 5 sampling for a total of 6,400
 vectors.
 
-![5 x5 Sampling Vector Field][4]
+![5 x 5 Sampling Vector Field][4]
 
 At this point, the vector field is a lot more manageable. It's easy to see where
 there is flow and where there isn't. Unfortunately, it's still difficult to
 actually see the direction of the flow.
 
+### Figure 4
+
+The following visualization demonstrates 10 x 10 sampling for a total of 1,600
+vectors.
+
+![10 x 10 Sampling Vector Field][5]
+
+At this point, the added whitespace allows us to really appreciate the
+flow. For example, there's a clear downward flow occurring in the top of the
+upper right quadrant.
+
+### Figure 5
+
+The following visualization demonstrates 20 x 20 sampling for a total of 400
+vectors.
+
+![20 x 20 Sampling Vector Field][6]
+
+At this point, we start to cross over into undersampling territory. At a high
+level, we can still see some of the major trends in vector field, but we start
+to lose some of the finer details. Sampling less than this would like result in
+the appearance of completely new trends.
+
+### Figure 6
+
+
+
 [1]: assignment03.html
 [2]: assets/1-by-1-sampling.JPG
 [3]: assets/2-by-2-sampling.JPG
 [4]: assets/5-by-5-sampling.JPG
+[5]: assets/10-by-10-sampling.JPG
+[6]: assets/20-by-20-sampling.JPG
