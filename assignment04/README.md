@@ -115,7 +115,15 @@ spotted, but overall flow is structure is completely lost.
 
 ## Experimentation and Report
 
-Following the direct visualization, we were asked
+Following the direct visualization, we were asked to perform a bit of
+experimentation. As you can see in the previous section, I've already done a bit
+of that. In addition, I've already taken some time to briefly explain my
+findings. That said, there were two questions we were asked to specifically
+address, so I've shared those answers in the following subsections.
+
+### What interesting features did you discover?
+
+### How do they compare for showing the features.
 
 [1]: assignment03.html
 [2]: assets/1-by-1-sampling.JPG
