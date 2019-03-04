@@ -123,6 +123,27 @@ address, so I've shared those answers in the following subsections.
 
 ### What interesting features did you discover?
 
+In general, I've found that you can definitely oversample as well as undersample.
+
+Oversampling results in a plot that shows no meaningful data since you can't
+discern any visual markings (see [Figure 1][2]). Even if you can see the visual
+markings, the result is still deceiving as you get a bit of an aliasing effect.
+In other words, the visual markings are so close together that you get a sort
+of pattern that shows up which doesn't map to the data at all.
+
+Undersampling results in a plot that also shows no meaningful data since so
+much information is missing. As a result, you can easily start to imagine
+patterns that aren't there (see [Figure 6][7]).
+
+Meanwhile, vector lengths are a powerful tool for recognizing flow trends.
+For example, you can extend the length of vectors to try to see trends in
+very small vectors. Areas of the field that may have looked stagnant before can
+suddenly become expressive.
+
+Of course, there's a dark side to increasing vector lengths. If you're not
+careful, the vectors can overlap each other, and you'll start losing clarity in
+the field. 
+
 ### How do they compare for showing the features.
 
 [1]: assignment03.html
