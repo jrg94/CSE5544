@@ -77,6 +77,17 @@ the smoothness between vectors is almost completely gone. It's not unusual to
 spot two adjacent vectors with wildly different lengths. In addition, some areas
 that used to have flow suddenly appear as dead zones.
 
+### Figure 7
+
+The following visualization demonstrates 50 x 50 sampling for a total of 64
+vectors.
+
+![50 x 50 Sampling Vector Field][8]
+
+Finally, we end of with a vector field that looks sort of like a set of clocks
+from around the world in no particular order. Some dominant trends can still be
+spotted, but overall flow is structure is completely lost. 
+
 [1]: assignment03.html
 [2]: assets/1-by-1-sampling.JPG
 [3]: assets/2-by-2-sampling.JPG
@@ -84,3 +95,4 @@ that used to have flow suddenly appear as dead zones.
 [5]: assets/10-by-10-sampling.JPG
 [6]: assets/20-by-20-sampling.JPG
 [7]: assets/25-by-25-sampling.JPG
+[8]: assets/50-by-50-sampling.JPG
