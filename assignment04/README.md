@@ -34,7 +34,7 @@ In this case, I sampled every other row and column. The values above can be
 changed to allow for any sampling approach.
 
 To get the appropriate vector length, I uniformly scaled down each vector by
-an arbitrary value (40). This appeared to be the best choice for the
+an arbitrary value (1/40). This appeared to be the best choice for the
 visualization. During experimentation, I changed this value.
 
 The following graphs demonstrate the results.
@@ -118,6 +118,23 @@ Finally, we end of with a vector field that looks sort of like a set of clocks
 from around the world in no particular order. Some dominant trends can still be
 spotted, but overall flow is structure is completely lost.
 
+### Figure 8
+
+At this point, I return the sampling rate to 20 x 20 and begin fluctuating the
+scale. The following visualization demonstrates 20 x 20 sampling and no scaling.
+
+![No Scaling Vector Field][9]
+
+With so many overlapping vectors and vectors leaving the graph, it's tough to
+tell what's happening. That said, the dominant flow directions are very clear.
+It's just tough to see where some vectors begin and others end.
+
+### Figure 9
+
+The following visualization demonstrates 10 x 10 sampling and 1/10 scaling.
+
+![1/10 Scaling Vector Field][10]
+
 ## Experimentation and Report
 
 Following the direct visualization, we were asked to perform a bit of
@@ -182,3 +199,5 @@ all, the longer the vectors the more information that's lost due to crowding.
 [6]: assets/20-by-20-sampling.JPG
 [7]: assets/25-by-25-sampling.JPG
 [8]: assets/50-by-50-sampling.JPG
+[9]: assets/20-by-20-sampling-no-scale.JPG
+[10]: assets/20-by-20-sampling-10-scale.JPG
