@@ -123,6 +123,19 @@ address, so I've shared those answers in the following subsections.
 
 ### What interesting features did you discover?
 
+As mentioned previously, I think the most interesting features of the data set
+have to be the following:
+
+- The downward flow that appears to influence most of the graph in the top
+of the upper right quadrant
+- The dense flow situated near the lower central part of the field
+- The lack of flow in areas surround the previously mentioned dense area
+
+All three features were fun to observe as I tampered with the sampling and
+vector lengths.
+
+### How do they compare for showing the features.
+
 In general, I've found that you can definitely oversample as well as undersample.
 
 Oversampling results in a plot that shows no meaningful data since you can't
@@ -131,9 +144,17 @@ markings, the result is still deceiving as you get a bit of an aliasing effect.
 In other words, the visual markings are so close together that you get a sort
 of pattern that shows up which doesn't map to the data at all.
 
+Oddly enough, oversampling seemed to do a great job of share both the dense
+and stagnant flow areas. However, it does a very poor job of showing the
+downward flow trend.
+
 Undersampling results in a plot that also shows no meaningful data since so
 much information is missing. As a result, you can easily start to imagine
 patterns that aren't there (see [Figure 6][7]).
+
+In general, undersampling didn't really hurt my ability to track strong flow
+regions like the downward flow area or the dense flow area. However, it's not
+great for observing the narrow stagnant areas.
 
 Meanwhile, vector lengths are a powerful tool for recognizing flow trends.
 For example, you can extend the length of vectors to try to see trends in
@@ -142,9 +163,11 @@ suddenly become expressive.
 
 Of course, there's a dark side to increasing vector lengths. If you're not
 careful, the vectors can overlap each other, and you'll start losing clarity in
-the field. 
+the field.
 
-### How do they compare for showing the features.
+Overall, I've found that varying the length of the vectors really didn't hurt my
+ability to see any of the three features except maybe the downward trend. After
+all, the longer the vectors the more information that's lost due to crowding.
 
 [1]: assignment03.html
 [2]: assets/1-by-1-sampling.JPG
