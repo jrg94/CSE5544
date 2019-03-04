@@ -44,10 +44,10 @@ d3.csv("data/testGHZ400clean.data").then(function(data) {
 
         svg.append("g")
           .append("circle")
-          .attr("r", 1)
-          //.attr("cx", xScale(p.px))
-          //.attr("cy", yScale(p.py))
-          .attr("transform", "translate(" + (xScale(p.x)) + "," + (yScale(p.y)) + ")");
+          .attr("r", 1.5)
+          .attr("cx", xScale(p.px))
+          .attr("cy", yScale(p.py))
+          .attr("transform", "translate(" + (xScale(p.x) - xScale(0)) + "," + (yScale(p.y) - yScale(0)) + ")");
 
       }
       i++;
