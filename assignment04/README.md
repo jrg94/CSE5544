@@ -31,8 +31,13 @@ if (i % 2 == 0 && j % 2 == 0)
 ```
 
 In this case, I sampled every other row and column. The values above can be
-changed to allow for any sampling approach. The following graphs demonstrate
-the results.
+changed to allow for any sampling approach.
+
+To get the appropriate vector length, I uniformly scaled down each vector by
+an arbitrary value (40). This appeared to be the best choice for the
+visualization. During experimentation, I changed this value.
+
+The following graphs demonstrate the results.
 
 ### Figure 1
 
